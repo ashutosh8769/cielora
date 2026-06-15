@@ -19,7 +19,7 @@ const styleScript = Style_Script({
 });
 
 export const metadata: Metadata = {
-  title: "UNO | Jewelry E-commerce",
+  title: "Cielora | Jewelry E-commerce",
   description: "Modern jewelry e-commerce landing page",
 };
 
