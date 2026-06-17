@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import ProductCard from "@/components/ProductCard";
+import { useCart } from "@/context/CartContext";
+import { useWishlist } from "@/context/WishlistContext";
 
 import { products as dummyProducts } from "@/data/products";
 
@@ -11,6 +13,11 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const { isCartOpen, openCart, closeCart, cartItems } = useCart();
+  const { wishlistItems } = useWishlist();
+
+  const cartItemsCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const wishlistItemsCount = wishlistItems.length;
 
   const tabs = [
     { name: "Limited Edition", href: "/limited-edition" },
@@ -478,26 +485,38 @@ export default function Navbar() {
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
             </button>
             {/* Store */}
-            <button aria-label="Store" title="Store" className="hidden sm:block hover:text-[#ac2505] transition-colors cursor-pointer">
+            <Link href="/stores" aria-label="Store" title="Store" className="hidden sm:block hover:text-[#ac2505] transition-colors cursor-pointer">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"></path><path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"></path><path d="M12 3v6"></path></svg>
-            </button>
+            </Link>
             {/* User */}
-            <button aria-label="User" title="Profile" className="hidden sm:block hover:text-[#ac2505] transition-colors cursor-pointer">
+            <Link href="/profile" aria-label="User" title="Profile" className="hidden sm:block hover:text-[#ac2505] transition-colors cursor-pointer">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            </button>
+            </Link>
             {/* Heart */}
-            <button aria-label="Wishlist" title="Wishlist" className="hover:text-[#ac2505] transition-colors cursor-pointer">
+            <Link href="/wishlist" aria-label="Wishlist" title="Wishlist" className="hover:text-[#ac2505] transition-colors cursor-pointer relative">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
-            </button>
+              {wishlistItemsCount > 0 && (
+                <span className="absolute -top-[5px] -right-[6px] bg-[#ac2505] text-white text-[10px] font-bold h-[18px] w-[18px] flex items-center justify-center rounded-full leading-none">
+                  {wishlistItemsCount}
+                </span>
+              )}
+            </Link>
             {/* Bag */}
-            <button aria-label="Cart" title="Cart" className="hover:text-[#ac2505] transition-colors relative cursor-pointer">
+            <button 
+              onClick={() => isCartOpen ? closeCart() : openCart()} 
+              aria-label="Cart" 
+              title="Cart" 
+              className="hover:text-[#ac2505] transition-colors relative cursor-pointer"
+            >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M8 7V5a4 4 0 0 1 8 0v2"></path>
                 <rect x="4" y="7" width="16" height="14" rx="2" ry="2"></rect>
               </svg>
-              <span className="absolute -top-[5px] -right-[6px] bg-[#ac2505] text-white text-[10px] font-bold h-[18px] w-[18px] flex items-center justify-center rounded-full leading-none">
-                0
-              </span>
+              {cartItemsCount > 0 && (
+                <span className="absolute -top-[5px] -right-[6px] bg-[#ac2505] text-white text-[10px] font-bold h-[18px] w-[18px] flex items-center justify-center rounded-full leading-none">
+                  {cartItemsCount}
+                </span>
+              )}
             </button>
 
             {/* Mobile menu button */}

@@ -3,6 +3,8 @@ import ProductRow from "@/components/ProductRow";
 import ZoomableImage from "@/components/ZoomableImage";
 import SizeSelector from "@/components/SizeSelector";
 import DetailsAccordion from "@/components/DetailsAccordion";
+import AddToCartButton from "@/components/AddToCartButton";
+import WishlistButton from "@/components/WishlistButton";
 import { products } from "@/data/products";
 import { notFound } from "next/navigation";
 
@@ -61,10 +63,6 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               <span className="text-[10px] text-gray-900 capitalize">{product.colors.join(', ')}</span>
             </div>
 
-            <button className="text-gray-500 hover:text-black absolute right-0 top-[60px]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg>
-            </button>
-
             {/* Size Selector */}
             <SizeSelector />
 
@@ -75,12 +73,26 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
             {/* Add to Cart & Wishlist */}
             <div className="w-full flex items-center gap-4 mb-6">
-              <button className="flex-1 bg-[#8c8888] text-white font-medium text-[16px] py-3 px-4 flex items-center justify-center transition-colors hover:bg-gray-600">
-                <span>Add to Cart</span>
-              </button>
-              <button className="flex-shrink-0 text-gray-500 hover:text-black">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg>
-              </button>
+              <AddToCartButton 
+                product={{
+                  id: product.id,
+                  title: product.title,
+                  price: product.price,
+                  image: product.galleryImages[0] || "/placeholder.jpg"
+                }}
+                selectedColor={product.colors[0] || "golden"}
+              />
+              <WishlistButton 
+                product={{
+                  id: product.id,
+                  title: product.title,
+                  price: product.price,
+                  image: product.galleryImages[0] || "/placeholder.jpg"
+                }}
+                className="flex-shrink-0" 
+                iconWidth={24} 
+                iconHeight={24} 
+              />
             </div>
 
             {/* Klarna Box */}

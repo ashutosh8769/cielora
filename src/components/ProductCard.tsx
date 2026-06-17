@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useWishlist } from "@/context/WishlistContext";
 
 export interface ProductCardProps {
   id?: string | number;
@@ -21,6 +22,7 @@ export interface ProductCardProps {
 export default function ProductCard({ id = 1, title, price, label, labelColor, bottomLabel, colors, images, galleryImages }: ProductCardProps) {
   const [selectedColor, setSelectedColor] = useState<"silver" | "gold">(colors[0] || "silver");
   const router = useRouter();
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
 
   let currentImages = images[selectedColor] || Object.values(images)[0] || { img1: "/images/product 1.jpg", img2: "/images/product 1.1.jpg" };
   
@@ -61,8 +63,25 @@ export default function ProductCard({ id = 1, title, price, label, labelColor, b
             </div>
           )}
         </div>
-        <button aria-label="Add to wishlist" className="text-gray-500 hover:text-black transition-colors" onClick={(e) => e.stopPropagation()}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <button 
+          aria-label="Add to wishlist" 
+          className="text-gray-500 hover:text-[#ac2505] transition-all duration-300 active:scale-75" 
+          onClick={(e) => { 
+            e.stopPropagation();
+            if (isInWishlist(id)) {
+              removeFromWishlist(id);
+            } else {
+              addToWishlist({
+                id: id.toString(),
+                title,
+                price,
+                color: selectedColor,
+                image: currentImages.img1
+              });
+            }
+          }}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill={isInWishlist(id) ? "#ac2505" : "none"} stroke={isInWishlist(id) ? "#ac2505" : "currentColor"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="transition-all duration-300 ease-in-out"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </button>
       </div>
       <div className="px-1 w-full flex flex-col items-start">
