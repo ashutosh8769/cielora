@@ -1,8 +1,10 @@
 "use client";
 
 import Link from 'next/link';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import ProductCard from '@/components/ProductCard';
+import { useProducts } from '@/hooks/useProducts';
 
 export default function CollectionsPage() {
   const [isSortOpen, setIsSortOpen] = useState(false);
@@ -134,67 +136,12 @@ export default function CollectionsPage() {
     "CATEGORY", "PRICE", "SIZE", "PLATING", "COMPONENT", "LEATHER", "COLOR"
   ];
 
-  const dummyProducts = Array.from({ length: 20 }).map((_, i) => {
-    const isSilver = i % 3 === 0;
-    const isGold = i % 3 === 1;
-    const isBoth = i % 3 === 2;
-    
-    const colors: ("silver" | "gold")[] = isBoth ? ["silver", "gold"] : isSilver ? ["silver"] : ["gold"];
-    const productColors: string[] = colors.map(c => c === "silver" ? "Silver" : "Gold");
-    if (i % 4 === 0) productColors.push("Black");
-    
-    let label = undefined;
-    let labelColor = undefined;
-    let bottomLabel = undefined;
-    
-    if (i === 0 || i === 5) {
-      label = "New in";
-      labelColor = "#cde6ec";
-    } else if (i === 3 || i === 8) {
-      label = "Best seller";
-      labelColor = "#e1bbff";
-    } 
-    
-    if (i === 1 || i === 6) {
-      bottomLabel = "Free Keyring";
-    }
+  const { products: dbProducts, loading } = useProducts();
 
-    const priceValue = 100 + i * 15;
-    
-    const categoryOptions = ["Bracelets", "Charm", "Necklaces", "Earrings", "Rings"];
-    const sizeOptions = ["9", "12", "U", "S", "M"];
-    const platingOptions = ["18K gold-plated", "Sterling silver-plated"];
-    const componentOptions = ["Crafted Crystal", "Natural Stone", "Shell Pearl"];
-    const leatherOptions = ["Yes", "No"];
-    
-    const category = categoryOptions[i % categoryOptions.length];
-    const size = sizeOptions[i % sizeOptions.length];
-    const plating = platingOptions[i % platingOptions.length];
-    const component = componentOptions[i % componentOptions.length];
-    const leather = leatherOptions[i % leatherOptions.length];
-    
-    // Inject top filter keywords occasionally to ensure dummy products are discoverable
-    const extras = i % 5 === 0 ? "Arcadia" : i % 5 === 1 ? "Ser Unode50" : i % 5 === 2 ? "Roots" : "";
+  const categoryProducts = dbProducts;
 
-    return {
-      id: i,
-      title: category,
-      description: `Beautiful ${category} made of ${component} with ${plating}. Leather: ${leather}. Size: ${size}. Colors: ${productColors.join(', ')}. ${extras}`,
-      price: `£ ${priceValue.toFixed(2)}`,
-      priceValue,
-      label,
-      labelColor,
-      bottomLabel,
-      colors,
-      images: {
-        silver: { img1: "/images/product 1.jpg", img2: "/images/product 1.1.jpg" },
-        gold: { img1: "/images/product%206%20yellow.1.jpg", img2: "/images/product%206%20yellow.2.jpg" }
-      }
-    };
-  });
-
-  const filteredProducts = dummyProducts.filter(p => {
-    const textToSearch = (p.title + " " + p.description).toLowerCase();
+  const filteredProducts = categoryProducts.filter(p => {
+    const textToSearch = (p.title + " " + p.description + " " + (p.collectionName || "")).toLowerCase();
     
     if (selectedFilters.CATEGORY.length > 0 && !selectedFilters.CATEGORY.some(cat => textToSearch.includes(cat.toLowerCase()))) return false;
     if (selectedFilters.SIZE.length > 0 && !selectedFilters.SIZE.some(size => textToSearch.includes(size.toLowerCase()))) return false;
@@ -216,12 +163,24 @@ export default function CollectionsPage() {
     }
     
     if (selectedTopFilter) {
-      const getKeywords = (filter: string) => {
-        let base = filter.toLowerCase().replace(" collections", "").replace(" collection", "");
-        return [base];
-      };
-      const keywords = getKeywords(selectedTopFilter);
-      if (!keywords.some(k => textToSearch.includes(k))) return false;
+      const filterWords = selectedTopFilter.toLowerCase().replace(/jewelry/g, "").replace(/jewerly/g, "").trim().split(/\s+/).filter(Boolean);
+      
+      const matchesAllWords = filterWords.every(word => {
+        let forms = [word];
+        if (word === "accesories" || word === "accessories") forms = ["accessory", "accessories", "accesory"];
+        else if (word === "women's") forms = ["women", "woman"];
+        else if (word === "men's") forms = ["men", "man"];
+        else if (word === "dragonfly") forms = ["dragonfly", "dragonflies"];
+        else if (word === "best" || word === "selling" || word === "sellers") forms = ["best seller", "best sellers", "selling", "sell", "seller", "best"];
+        else {
+           if (word.endsWith('ies')) forms.push(word.slice(0, -3) + 'y');
+           else if (word.endsWith('s')) forms.push(word.slice(0, -1));
+           else forms.push(word + 's');
+        }
+        return forms.some(form => textToSearch.includes(form));
+      });
+      
+      if (!matchesAllWords) return false;
     }
     
     return true;
@@ -241,16 +200,24 @@ export default function CollectionsPage() {
   });
 
   const getCount = (keyword: string, type: "PRICE" | "TEXT") => {
-    return dummyProducts.filter(p => {
+    return categoryProducts.filter(p => {
       if (type === "PRICE") {
         if (keyword === "More than £500") return p.priceValue >= 500;
         const match = keyword.match(/£(\d+)\s*-\s*£(\d+)/);
         if (match) return p.priceValue >= parseInt(match[1]) && p.priceValue <= parseInt(match[2]);
         return false;
       }
-      return (p.title + " " + p.description).toLowerCase().includes(keyword.toLowerCase());
+      return (p.title + " " + p.description + " " + (p.collectionName || "")).toLowerCase().includes(keyword.toLowerCase());
     }).length;
   };
+
+  if (loading) {
+    return (
+      <div className="w-full bg-white min-h-screen flex items-center justify-center text-gray-500 font-medium">
+        Loading collections...
+      </div>
+    );
+  }
 
   return (
     <div className="w-full bg-white min-h-screen">

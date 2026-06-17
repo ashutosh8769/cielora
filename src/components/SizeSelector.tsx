@@ -2,11 +2,13 @@
 
 import React, { useState } from 'react';
 
-export default function SizeSelector() {
+interface SizeSelectorProps {
+  sizes?: string[];
+}
+
+export default function SizeSelector({ sizes = ['M', 'L', 'XL'] }: SizeSelectorProps) {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
-
-  const sizes = ['M', 'L', 'XL'];
 
   const handleSelect = (size: string) => {
     setSelectedSize(size);

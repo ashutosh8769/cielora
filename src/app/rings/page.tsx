@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState, useRef, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import ProductCard from '@/components/ProductCard';
+import { useProducts } from '@/hooks/useProducts';
 
 function RingsContent() {
   const [isSortOpen, setIsSortOpen] = useState(false);
@@ -137,66 +138,11 @@ function RingsContent() {
     "CATEGORY", "PRICE", "SIZE", "PLATING", "COMPONENT", "LEATHER", "COLOR"
   ];
 
-  const dummyProducts = Array.from({ length: 20 }).map((_, i) => {
-    const isSilver = i % 3 === 0;
-    const isGold = i % 3 === 1;
-    const isBoth = i % 3 === 2;
-    
-    const colors: ("silver" | "gold")[] = isBoth ? ["silver", "gold"] : isSilver ? ["silver"] : ["gold"];
-    const productColors: string[] = colors.map(c => c === "silver" ? "Silver" : "Gold");
-    if (i % 4 === 0) productColors.push("Black");
-    
-    let label = undefined;
-    let labelColor = undefined;
-    let bottomLabel = undefined;
-    
-    if (i === 0 || i === 5) {
-      label = "New in";
-      labelColor = "#cde6ec";
-    } else if (i === 3 || i === 8) {
-      label = "Best seller";
-      labelColor = "#e1bbff";
-    } 
-    
-    if (i === 1 || i === 6) {
-      bottomLabel = "Free Keyring";
-    }
+  const { products: dbProducts, loading } = useProducts();
 
-    const priceValue = 100 + i * 15;
-    
-    const categoryOptions = ["Silver Rings", "Gold Rings", "Crystal Rings", "Minimal Rings", "Rings for Special Occasions", "Best Selling Rings"];
-    const sizeOptions = ["9", "12", "U", "S", "M"];
-    const platingOptions = ["18K gold-plated", "Sterling silver-plated"];
-    const componentOptions = ["Crafted Crystal", "Natural Stone", "Shell Pearl"];
-    const leatherOptions = ["Yes", "No"];
-    
-    const category = categoryOptions[i % categoryOptions.length];
-    const size = sizeOptions[i % sizeOptions.length];
-    const plating = platingOptions[i % platingOptions.length];
-    const component = componentOptions[i % componentOptions.length];
-    const leather = leatherOptions[i % leatherOptions.length];
-    
-    // Inject top filter keywords occasionally to ensure dummy products are discoverable
-    const extras = i % 5 === 0 ? "accessory for women" : i % 5 === 1 ? "men's dragonfly" : i % 5 === 2 ? "heart best seller" : "";
+  const categoryProducts = dbProducts.filter(p => p.category?.toLowerCase().includes("ring"));
 
-    return {
-      id: i,
-      title: category,
-      description: `Beautiful ${category} made of ${component} with ${plating}. Leather: ${leather}. Size: ${size}. Colors: ${productColors.join(', ')}. ${extras}`,
-      price: `£ ${priceValue.toFixed(2)}`,
-      priceValue,
-      label,
-      labelColor,
-      bottomLabel,
-      colors,
-      images: {
-        silver: { img1: "/images/product 1.jpg", img2: "/images/product 1.1.jpg" },
-        gold: { img1: "/images/product%206%20yellow.1.jpg", img2: "/images/product%206%20yellow.2.jpg" }
-      }
-    };
-  });
-
-  const filteredProducts = dummyProducts.filter(p => {
+  const filteredProducts = categoryProducts.filter(p => {
     const textToSearch = (p.title + " " + p.description).toLowerCase();
     
     if (selectedFilters.CATEGORY.length > 0 && !selectedFilters.CATEGORY.some(cat => textToSearch.includes(cat.toLowerCase()))) return false;
@@ -256,7 +202,7 @@ function RingsContent() {
   });
 
   const getCount = (keyword: string, type: "PRICE" | "TEXT") => {
-    return dummyProducts.filter(p => {
+    return categoryProducts.filter(p => {
       if (type === "PRICE") {
         if (keyword === "More than £500") return p.priceValue >= 500;
         const match = keyword.match(/£(\d+)\s*-\s*£(\d+)/);
@@ -266,6 +212,14 @@ function RingsContent() {
       return (p.title + " " + p.description).toLowerCase().includes(keyword.toLowerCase());
     }).length;
   };
+
+  if (loading) {
+    return (
+      <div className="w-full bg-white min-h-screen flex items-center justify-center text-gray-500 font-medium">
+        Loading rings...
+      </div>
+    );
+  }
 
   return (
     <div className="w-full bg-white min-h-screen">

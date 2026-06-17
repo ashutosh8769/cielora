@@ -2,16 +2,17 @@
 
 import { useRef, useState, useEffect, useCallback } from "react";
 import ProductCard from "@/components/ProductCard";
-import { products } from "@/data/products";
+import { products as defaultProducts } from "@/data/products";
 
 interface ProductRowProps {
   collectionName: string;
   price?: string;
   label?: string;
   className?: string;
+  products?: any[];
 }
 
-export default function ProductRow({ collectionName, className = "" }: ProductRowProps) {
+export default function ProductRow({ collectionName, className = "", products }: ProductRowProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -44,7 +45,9 @@ export default function ProductRow({ collectionName, className = "" }: ProductRo
 
   // Assign different products based on collection for variety
   const isArcadia = collectionName === "Arcadia";
-  const rowProducts = isArcadia ? products.slice(0, 8) : products.slice(8, 16);
+  const rowProducts = products && products.length > 0 
+    ? products 
+    : (isArcadia ? defaultProducts.slice(0, 8) : defaultProducts.slice(8, 16));
 
   return (
     <section className={`${className} px-4 sm:px-6 lg:px-8 w-full`}>

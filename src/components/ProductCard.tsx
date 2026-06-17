@@ -24,10 +24,12 @@ export default function ProductCard({ id = 1, title, price, label, labelColor, b
   const router = useRouter();
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
 
-  let currentImages = images[selectedColor] || Object.values(images)[0] || { img1: "/images/product 1.jpg", img2: "/images/product 1.1.jpg" };
+  let currentImages = images[selectedColor] || Object.values(images)[0];
   
-  if (galleryImages && galleryImages.length >= 2) {
+  if (!currentImages && galleryImages && galleryImages.length >= 2) {
     currentImages = { img1: galleryImages[0], img2: galleryImages[1] };
+  } else if (!currentImages) {
+    currentImages = { img1: "/images/product 1.jpg", img2: "/images/product 1.1.jpg" };
   }
 
   return (

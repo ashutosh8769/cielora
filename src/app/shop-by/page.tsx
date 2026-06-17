@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react';
 import ProductCard from '@/components/ProductCard';
-import { products as dummyProducts } from "@/data/products";
+import { useProducts } from '@/hooks/useProducts';
 
 export default function ShopByPage() {
   const [isSortOpen, setIsSortOpen] = useState(false);
@@ -136,8 +136,10 @@ export default function ShopByPage() {
     "CATEGORY", "PRICE", "SIZE", "PLATING", "COMPONENT", "LEATHER", "COLOR"
   ];
 
-  const filteredProducts = dummyProducts.filter(p => {
-    const textToSearch = (p.title + " " + p.description).toLowerCase();
+  const { products: dbProducts, loading } = useProducts();
+
+  const filteredProducts = dbProducts.filter(p => {
+    const textToSearch = (p.title + " " + p.description + " " + (p.collectionName || "")).toLowerCase();
     
     if (selectedFilters.CATEGORY.length > 0 && !selectedFilters.CATEGORY.some(cat => textToSearch.includes(cat.toLowerCase()))) return false;
     if (selectedFilters.SIZE.length > 0 && !selectedFilters.SIZE.some(size => textToSearch.includes(size.toLowerCase()))) return false;
@@ -189,7 +191,7 @@ export default function ShopByPage() {
   });
 
   const getCount = (keyword: string, type: "PRICE" | "TEXT") => {
-    return dummyProducts.filter(p => {
+    return dbProducts.filter(p => {
       if (type === "PRICE") {
         if (keyword === "More than £500") return p.priceValue >= 500;
         const match = keyword.match(/£(\d+)\s*-\s*£(\d+)/);
@@ -199,6 +201,14 @@ export default function ShopByPage() {
       return (p.title + " " + p.description).toLowerCase().includes(keyword.toLowerCase());
     }).length;
   };
+
+  if (loading) {
+    return (
+      <div className="w-full bg-white min-h-screen flex items-center justify-center text-gray-500 font-medium">
+        Loading catalog...
+      </div>
+    );
+  }
 
   return (
     <div className="w-full bg-white min-h-screen">

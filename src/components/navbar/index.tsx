@@ -2,12 +2,10 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProductCard from "@/components/ProductCard";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
-
-import { products as dummyProducts } from "@/data/products";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +17,7 @@ export default function Navbar() {
   const cartItemsCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
   const wishlistItemsCount = wishlistItems.length;
 
-  const tabs = [
+  const [tabs, setTabs] = useState<any[]>([
     { name: "Limited Edition", href: "/limited-edition" },
     { name: "Shop by", href: "/shop-by" },
     { name: "Collections", href: "/collections" },
@@ -30,7 +28,24 @@ export default function Navbar() {
     { name: "Charms", href: "/charms" },
     { name: "For him", href: "/for-him" },
     { name: "Outlet", href: "/outlet" },
-  ];
+  ]);
+  const [dbProducts, setDbProducts] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetch("/api/db")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.navbarTabs) {
+          setTabs(data.navbarTabs);
+        }
+        if (data.products) {
+          setDbProducts(data.products);
+        }
+      })
+      .catch((err) => {
+        console.error("Error loading dynamic navbar config:", err);
+      });
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#fffbf7] flex flex-col">
@@ -39,8 +54,12 @@ export default function Navbar() {
 
           {/* Logo (Left) */}
           <div className="flex items-center pl-[72px] pr-6">
-            <Link href="/" className="flex items-center">
-              <Image src="/images/logo site.svg" alt="Cielora Logo" width={140} height={40} className="w-auto h-[40px] object-contain" priority />
+            <Link
+              href="/"
+              className="flex items-center text-[44px] font-normal leading-none tracking-[0.02em] select-none"
+              style={{ fontFamily: "var(--font-style-script)", color: "#d2977aff" }}
+            >
+              Cielora
             </Link>
           </div>
 
@@ -502,10 +521,10 @@ export default function Navbar() {
               )}
             </Link>
             {/* Bag */}
-            <button 
-              onClick={() => isCartOpen ? closeCart() : openCart()} 
-              aria-label="Cart" 
-              title="Cart" 
+            <button
+              onClick={() => isCartOpen ? closeCart() : openCart()}
+              aria-label="Cart"
+              title="Cart"
               className="hover:text-[#ac2505] transition-colors relative cursor-pointer"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -548,8 +567,8 @@ export default function Navbar() {
 
       {/* Search Overlay Backdrop (closes search on outside click) */}
       {isSearchOpen && (
-        <div 
-          className="fixed top-[70px] left-0 w-full h-[calc(100vh-70px)] z-30" 
+        <div
+          className="fixed top-[70px] left-0 w-full h-[calc(100vh-70px)] z-30"
           onClick={() => setIsSearchOpen(false)}
         />
       )}
@@ -559,9 +578,9 @@ export default function Navbar() {
         <div className="absolute top-full left-0 w-full min-h-[50vh] max-h-[85vh] overflow-y-auto bg-[#fffbf7] border-t border-gray-200 z-40 flex flex-col pt-12 pb-12 px-4 md:px-12 items-center shadow-lg">
           <div className="w-full max-w-3xl relative flex items-center bg-white/60 hover:bg-white/90 transition-colors rounded-full py-3 px-6 border border-gray-200 shadow-sm backdrop-blur-md flex-shrink-0">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-500 mr-3"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
-            <input 
-              type="text" 
-              placeholder="Search (keywords, etc)" 
+            <input
+              type="text"
+              placeholder="Search (keywords, etc)"
               className="flex-1 bg-transparent border-none outline-none text-gray-800 text-[15px] placeholder:text-gray-400 font-light"
               autoFocus
               value={searchQuery}
@@ -576,8 +595,8 @@ export default function Navbar() {
             <div className="w-full max-w-7xl mt-12">
               <h3 className="text-[14px] text-gray-500 mb-6 uppercase tracking-wider font-medium">Search Results</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-x-1 gap-y-10">
-                {dummyProducts.filter(p => (p.title + " " + p.description).toLowerCase().includes(searchQuery.toLowerCase())).slice(0, 8).map(product => (
-                  <ProductCard 
+                {dbProducts.filter(p => (p.title + " " + p.description).toLowerCase().includes(searchQuery.toLowerCase())).slice(0, 8).map(product => (
+                  <ProductCard
                     key={product.id}
                     id={product.id}
                     title={product.title}
@@ -590,7 +609,7 @@ export default function Navbar() {
                   />
                 ))}
               </div>
-              {dummyProducts.filter(p => (p.title + " " + p.description).toLowerCase().includes(searchQuery.toLowerCase())).length === 0 && (
+              {dbProducts.filter(p => (p.title + " " + p.description).toLowerCase().includes(searchQuery.toLowerCase())).length === 0 && (
                 <p className="text-gray-500 text-center py-10">No products found for "{searchQuery}".</p>
               )}
             </div>

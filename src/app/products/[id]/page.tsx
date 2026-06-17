@@ -5,129 +5,27 @@ import SizeSelector from "@/components/SizeSelector";
 import DetailsAccordion from "@/components/DetailsAccordion";
 import AddToCartButton from "@/components/AddToCartButton";
 import WishlistButton from "@/components/WishlistButton";
-import { products } from "@/data/products";
+import ProductInteractiveView from "@/components/ProductInteractiveView";
+import { getDb } from "@/lib/db";
 import { notFound } from "next/navigation";
 
 export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;
-  const product = products.find(p => String(p.id) === resolvedParams.id);
+  const db = getDb();
+  const product = db.products.find(p => String(p.id) === resolvedParams.id);
+  const settings = db.settings;
   
   if (!product) {
     notFound();
   }
 
+  // Calculate installments
+  const installmentsCount = settings.installmentsCount || 3;
+  const installmentValue = (product.priceValue / installmentsCount).toFixed(2);
+
   return (
     <main className="flex flex-col min-h-screen bg-white pt-16">
-      <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-16 pb-0">
-
-        {/* Left Side - Image Gallery */}
-        <div className="w-full lg:w-[60%] xl:w-[65%] flex flex-col">
-          <div className="grid grid-cols-2 gap-1">
-            {product.galleryImages.map((src, idx) => (
-              <ZoomableImage key={idx} src={src} alt={`${product.title} Gallery Image ${idx + 1}`} />
-            ))}
-          </div>
-        </div>
-
-        {/* Right Side - Product Info */}
-        <div className="w-full lg:w-[40%] xl:w-[35%] flex flex-col relative px-4 sm:px-6 lg:px-0 lg:pr-8 xl:pr-16">
-          <div className="pt-4 pb-24">
-            {/* Breadcrumbs */}
-            <nav className="text-[12px] text-gray-500 mb-6 font-normal">
-              <span className="hover:text-black cursor-pointer">Home</span> <span className="mx-1">&gt;</span>
-              <span className="hover:text-black cursor-pointer">{product.category || 'Shop'}</span> <span className="mx-1">&gt;</span>
-              <span className="hover:text-black cursor-pointer">{product.title}</span>
-            </nav>
-
-            {/* Title & Price & Ref */}
-            <h1 className="text-[20px] font-semibold leading-tight text-gray-900 mb-1 pr-8">
-              {product.title}
-            </h1>
-            <p className="text-[16px] font-semibold text-gray-900 mb-[20px]">
-              {product.price}
-            </p>
-
-            {/* Color Picker */}
-            <div className="flex justify-between items-center w-full mb-6">
-              <div className="flex gap-3">
-                {product.colors.map(color => (
-                  <div
-                    key={color}
-                    className="w-[24px] h-[24px] rounded-full bg-white cursor-pointer border border-gray-400 flex items-center justify-center"
-                    aria-label={`${color} color option`}
-                  >
-                    <div className="w-[14px] h-[14px] rounded-full" style={{ backgroundColor: color === 'silver' ? "#C0C0C0" : "#FFD700" }}></div>
-                  </div>
-                ))}
-              </div>
-              <span className="text-[10px] text-gray-900 capitalize">{product.colors.join(', ')}</span>
-            </div>
-
-            {/* Size Selector */}
-            <SizeSelector />
-
-            {/* Promo Banner */}
-            <div className="w-full bg-[#f2f4f6] text-gray-800 text-[12px] py-2.5 px-3 mb-4">
-              FATHER'S DAY | Free key ring with purchases over £90
-            </div>
-
-            {/* Add to Cart & Wishlist */}
-            <div className="w-full flex items-center gap-4 mb-6">
-              <AddToCartButton 
-                product={{
-                  id: product.id,
-                  title: product.title,
-                  price: product.price,
-                  image: product.galleryImages[0] || "/placeholder.jpg"
-                }}
-                selectedColor={product.colors[0] || "golden"}
-              />
-              <WishlistButton 
-                product={{
-                  id: product.id,
-                  title: product.title,
-                  price: product.price,
-                  image: product.galleryImages[0] || "/placeholder.jpg"
-                }}
-                className="flex-shrink-0" 
-                iconWidth={24} 
-                iconHeight={24} 
-              />
-            </div>
-
-            {/* Klarna Box */}
-            <div className="w-full border border-gray-100 p-4 flex gap-4 mb-6 items-start">
-              <div className="bg-[#ffb3c7] text-black font-extrabold text-[15px] px-3 py-1 rounded-[6px] mt-1 tracking-tight">
-                Klarna
-              </div>
-              <div className="flex flex-col">
-                <span className="text-[14px] text-gray-900 mb-1">
-                  3 payments of <span className="font-bold">£36.66</span> at 0% interest with Klarna
-                </span>
-                <a href="#" className="text-[14px] text-gray-900 underline decoration-1 underline-offset-2 mb-2 hover:text-gray-600 transition-colors w-fit">Learn more</a>
-                <span className="text-[13px] text-gray-500">18+, T&C apply, Credit subject to status.</span>
-              </div>
-            </div>
-
-            {/* PayPal */}
-            <div className="w-full flex items-center gap-2 mb-8 text-[13px] text-gray-800">
-              <span className="italic font-bold text-[15px] text-[#003087]">PayPal</span>
-              <span>Pay in 3 interest-free payments of £36.67. <a href="#" className="underline text-[#0070ba] hover:text-[#003087]">Learn more</a></span>
-            </div>
-
-            {/* Description */}
-            <div className="mt-8 mb-6">
-              <h3 className="text-[12px] font-semibold text-gray-900 mb-3">Description</h3>
-              <p className="text-[12px] text-gray-600 leading-[1.6]">
-                {product.description}
-              </p>
-            </div>
-
-            {/* Details Accordion */}
-            <DetailsAccordion />
-          </div>
-        </div>
-      </div>
+      <ProductInteractiveView product={product} settings={settings} />
 
       <div className="mt-12 pb-6">
         <h2 className="text-[16px] font-medium px-4 sm:px-6 lg:px-8 mb-0">You may also like</h2>

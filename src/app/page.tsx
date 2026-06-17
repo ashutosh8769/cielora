@@ -1,141 +1,172 @@
 import Image from "next/image";
 import ProductRow from "@/components/ProductRow";
+import { getDb } from "@/lib/db";
 
+export default async function Home() {
+  const db = getDb();
+  const products = db.products;
+  const banners = db.banners;
+  
+  const getBanner = (id: string) => banners.find(b => b.id === id);
+  
+  const topHero = getBanner("topHero");
+  const arcadiaBanner = getBanner("arcadia");
+  const midBanner = getBanner("midBanner");
+  const flutterBanner = getBanner("flutter");
+  const luminisBanner = getBanner("luminis");
+  
+  // Filter products by collection names for rows
+  const silverProducts = products.filter(p => p.collectionName === "Silver Collection");
+  const arcadiaProducts = products.filter(p => p.collectionName === "Arcadia");
+  const classicProducts = products.filter(p => p.collectionName === "Classic");
 
-export default function Home() {
   return (
     <main className="flex min-h-screen flex-col bg-white">
-      {/* Top Hero Section (from image) - Partial face and shoulder wearing jewelry */}
-      <section className="relative w-full h-[65vh] md:h-[800px] bg-stone-200">
-        <div className="absolute inset-0 flex items-center justify-end overflow-hidden">
+      {/* Top Hero Section */}
+      {topHero && topHero.visible && (
+        <section className="relative w-full h-[65vh] md:h-[800px] bg-stone-200">
+          <div className="absolute inset-0 flex items-center justify-end overflow-hidden">
+            <div className="absolute inset-0 z-0">
+              <img
+                src={topHero.image}
+                alt={topHero.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="z-10 text-right w-full px-4 sm:px-8 lg:px-16 xl:px-24 flex flex-col items-end">
+              <h1 className="text-[30px] font-medium text-white drop-shadow-lg uppercase tracking-wider">{topHero.title}</h1>
+              <a href={topHero.link} className="text-[16px] font-medium text-white mt-2 hover:text-gray-300 transition-colors uppercase tracking-wider">
+                {topHero.linkLabel}
+              </a>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* First Product Row */}
+      {silverProducts.length > 0 && (
+        <ProductRow products={silverProducts} collectionName="Silver Collection" className="pt-8" />
+      )}
+
+      {/* Arcadia Hero Banner */}
+      {arcadiaBanner && arcadiaBanner.visible && (
+        <section className="relative w-full h-[60vh] md:h-[700px] bg-stone-100 flex items-center overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img
-              src="/images/Banner_GWP_LlaveroDAD_desktop.webp"
-              alt="New Arrivals Banner"
+              src={arcadiaBanner.image}
+              alt={arcadiaBanner.title}
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="z-10 text-right w-full px-4 sm:px-8 lg:px-16 xl:px-24 flex flex-col items-end">
-            <h1 className="text-[30px] font-medium text-white drop-shadow-lg">For dad</h1>
-            <a href="#" className="text-[16px] font-medium text-white mt-2 hover:text-gray-300 transition-colors">
-              VIEW MEN'S JEWELRY &gt;
+          <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-24 flex flex-col items-end justify-center h-full z-10 relative">
+            <h2 className="text-[40px] font-medium text-white leading-none text-right uppercase tracking-wider">
+              {arcadiaBanner.title}
+            </h2>
+            <a href={arcadiaBanner.link} className="text-[16px] font-medium text-white hover:text-gray-300 transition-colors text-right flex items-center gap-1 mt-2 uppercase tracking-wider">
+              {arcadiaBanner.linkLabel}
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* First Product Row */}
-      <ProductRow collectionName="Silver Collection" price="£ 12,000" label="FREE KEYRING" />
-
-      {/* Arcadia Hero Banner */}
-      <section className="relative w-full h-[60vh] md:h-[700px] bg-stone-100 flex items-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/HEADER_NEW-IN_ARCADIA_desktop.jpg"
-            alt="Arcadia Banner"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-24 flex flex-col items-end justify-center h-full z-10 relative">
-          <h2 className="text-[40px] font-medium text-white leading-none text-right">
-            New in
-          </h2>
-          <button className="text-[16px] font-medium text-white hover:text-gray-300 transition-colors text-right flex items-center gap-1">
-            Discover
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
-          </button>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Arcadia Product Row */}
-      <ProductRow collectionName="Arcadia" price="£ 14,500" label="BEST SELLER" />
+      {arcadiaBanner && arcadiaBanner.visible && arcadiaProducts.length > 0 && (
+        <ProductRow products={arcadiaProducts} collectionName="Arcadia" className="pt-8" />
+      )}
 
-      {/* Mid Banner - Model looking down */}
-      <section className="sticky top-0 w-full h-screen bg-stone-800 flex items-center overflow-hidden z-0">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/banner%203.jpg"
-            alt="Icons Banner"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-24 flex flex-col items-end justify-center h-full z-10 relative">
-          <h2 className="text-[32px] font-medium text-white max-w-md text-right leading-tight">
-            Icons that always <br /> come back
-          </h2>
-          <button className="text-[16px] font-medium text-white mt-4 flex items-center gap-1 hover:text-gray-300 transition-colors">
-            DISCOVER
-          </button>
-        </div>
-      </section>
+      {/* Mid Banner */}
+      {midBanner && midBanner.visible && (
+        <section className="sticky top-0 w-full h-screen bg-stone-800 flex items-center overflow-hidden z-0">
+          <div className="absolute inset-0 z-0">
+            <img
+              src={midBanner.image}
+              alt={midBanner.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-24 flex flex-col items-end justify-center h-full z-10 relative">
+            <h2 className="text-[32px] font-medium text-white max-w-md text-right leading-tight uppercase tracking-wider">
+              {midBanner.title}
+            </h2>
+            <a href={midBanner.link} className="text-[16px] font-medium text-white mt-4 flex items-center gap-1 hover:text-gray-300 transition-colors uppercase tracking-wider">
+              {midBanner.linkLabel}
+            </a>
+          </div>
+        </section>
+      )}
 
-      <div className="relative z-10 bg-white">
+      <div className="relative z-10 bg-white pt-8">
         {/* Unique Pieces Row */}
         <section className="py-6 px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="flex flex-col cursor-pointer group p-2">
-            <div className="aspect-[3/4] bg-gray-100 group-hover:bg-gray-200 transition-colors w-full overflow-hidden relative">
-              <img src="/images/CATEGORIAS_1.webp" alt="BRACELETS" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="flex flex-col cursor-pointer group p-2">
+              <div className="aspect-[3/4] bg-gray-100 group-hover:bg-gray-200 transition-colors w-full overflow-hidden relative">
+                <img src="/images/CATEGORIAS_1.webp" alt="BRACELETS" className="absolute inset-0 w-full h-full object-cover" />
+              </div>
+              <p className="text-[20px] font-semibold pt-4 text-gray-900">BRACELETS</p>
             </div>
-            <p className="text-[20px] font-semibold pt-4 text-gray-900">BRACELETS</p>
-          </div>
-          <div className="flex flex-col cursor-pointer group p-2">
-            <div className="aspect-[3/4] bg-stone-200 group-hover:bg-stone-300 transition-colors w-full overflow-hidden relative">
-              <img src="/images/CATEGORIAS_2.webp" alt="RINGS" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="flex flex-col cursor-pointer group p-2">
+              <div className="aspect-[3/4] bg-stone-200 group-hover:bg-stone-300 transition-colors w-full overflow-hidden relative">
+                <img src="/images/CATEGORIAS_2.webp" alt="RINGS" className="absolute inset-0 w-full h-full object-cover" />
+              </div>
+              <p className="text-[20px] font-semibold pt-4 text-gray-900">RINGS</p>
             </div>
-            <p className="text-[20px] font-semibold pt-4 text-gray-900">RINGS</p>
-          </div>
-          <div className="flex flex-col cursor-pointer group p-2">
-            <div className="aspect-[3/4] bg-gray-100 group-hover:bg-gray-200 transition-colors w-full overflow-hidden relative">
-              <img src="/images/CATEGORIAS_3.webp" alt="NECKLACES" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="flex flex-col cursor-pointer group p-2">
+              <div className="aspect-[3/4] bg-gray-100 group-hover:bg-gray-200 transition-colors w-full overflow-hidden relative">
+                <img src="/images/CATEGORIAS_3.webp" alt="NECKLACES" className="absolute inset-0 w-full h-full object-cover" />
+              </div>
+              <p className="text-[20px] font-semibold pt-4 text-gray-900">NECKLACES</p>
             </div>
-            <p className="text-[20px] font-semibold pt-4 text-gray-900">NECKLACES</p>
-          </div>
-          <div className="flex flex-col cursor-pointer group p-2">
-            <div className="aspect-[3/4] bg-stone-200 group-hover:bg-stone-300 transition-colors w-full overflow-hidden relative">
-              <img src="/images/CATEGORIAS_4.webp" alt="EARRINGS" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="flex flex-col cursor-pointer group p-2">
+              <div className="aspect-[3/4] bg-stone-200 group-hover:bg-stone-300 transition-colors w-full overflow-hidden relative">
+                <img src="/images/CATEGORIAS_4.webp" alt="EARRINGS" className="absolute inset-0 w-full h-full object-cover" />
+              </div>
+              <p className="text-[20px] font-semibold pt-4 text-gray-900">EARRINGS</p>
             </div>
-            <p className="text-[20px] font-semibold pt-4 text-gray-900">EARRINGS</p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Full Face Model Banner */}
-      <section className="relative w-full h-screen bg-stone-800 flex items-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/banner%204.jpg"
-            alt="Full Face Model Banner"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-24 flex flex-col items-end justify-center h-full z-10 relative">
-          <a href="#" className="text-[16px] font-normal text-white hover:text-gray-300 transition-colors">
-            DISCOVER FLUTTER &gt;
-          </a>
-        </div>
-      </section>
+        {/* Full Face Model Banner */}
+        {flutterBanner && flutterBanner.visible && (
+          <section className="relative w-full h-screen bg-stone-800 flex items-center overflow-hidden my-8">
+            <div className="absolute inset-0 z-0">
+              <img
+                src={flutterBanner.image}
+                alt={flutterBanner.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-24 flex flex-col items-end justify-center h-full z-10 relative">
+              <a href={flutterBanner.link} className="text-[16px] font-normal text-white hover:text-gray-300 transition-colors uppercase tracking-wider">
+                {flutterBanner.linkLabel}
+              </a>
+            </div>
+          </section>
+        )}
 
-      {/* Last Product Row */}
-      <ProductRow collectionName="Classic" price="£ 8,500" label="FREE SHIPPING" />
+        {/* Last Product Row */}
+        {classicProducts.length > 0 && (
+          <ProductRow products={classicProducts} collectionName="Classic" className="py-8" />
+        )}
 
-      {/* Luminis Edition */}
-      <section className="relative w-full h-[60vh] md:h-[700px] bg-stone-900 flex items-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/banner%205.webp"
-            alt="Luminis Edition Banner"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-24 flex flex-col items-end justify-center h-full z-10 relative">
-          <a href="#" className="text-[16px] font-normal text-white hover:text-gray-300 transition-colors">
-            DISCOVER THE COLLECTION &gt;
-          </a>
-        </div>
-      </section>
-
-
+        {/* Luminis Edition */}
+        {luminisBanner && luminisBanner.visible && (
+          <section className="relative w-full h-[60vh] md:h-[700px] bg-stone-900 flex items-center overflow-hidden mt-8">
+            <div className="absolute inset-0 z-0">
+              <img
+                src={luminisBanner.image}
+                alt={luminisBanner.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-24 flex flex-col items-end justify-center h-full z-10 relative">
+              <a href={luminisBanner.link} className="text-[16px] font-normal text-white hover:text-gray-300 transition-colors uppercase tracking-wider">
+                {luminisBanner.linkLabel}
+              </a>
+            </div>
+          </section>
+        )}
       </div>
     </main>
   );

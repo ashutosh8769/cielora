@@ -56,7 +56,9 @@ This plan outlines the development of the Cielora Admin Panel, designed to give 
 **Goal:** Restrict admin dashboard access to authorized administrators.
 
 **Features:**
-*   **Secure Route Shielding:** Require credentials (email/password) to enter `/admin` page paths using Next.js Middleware.
+*   **Google OAuth Whitelisting (No Password Access):** Add a "Sign in with Google" button on `/admin` to authenticate admins without password/passcode management or reset flows.
+*   **Vercel Environment Variables Strategy:** Store whitelisted Gmail addresses in a custom environment variable (e.g., `ADMIN_EMAILS="owner@gmail.com,client@gmail.com"`). This makes it extremely easy to manage during client handover—the client simply updates this list in the Vercel Dashboard.
+*   **Secure Route Shielding:** Require a valid Google session with a whitelisted email address in Next.js Middleware or page layout checks to enter `/admin` page paths.
 *   **Role-Based Access Control (RBAC):**
     *   *Owner:* Full control (manage products, view sales, manage admin users).
     *   *Editor:* Can modify products, homepage layouts, labels, and stores.

@@ -1,0 +1,2268 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Silver Earring",
+      "description": "Beautiful Bracelets made of Crafted Crystal with 18K gold-plated. Leather: Yes. Size: 9. Colors: Silver, Black. accessory for women",
+      "price": "£ 165.00",
+      "priceValue": 165,
+      "label": "New in",
+      "labelColor": "#cde6ec",
+      "colors": [
+        "silver",
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 1.2.PNG",
+          "img2": "/images/product 1.PNG"
+        },
+        "gold": {
+          "img1": "/images/1 product.jpg",
+          "img2": "/images/1.2 product.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 1.2.PNG",
+        "/images/product 1.PNG",
+        "/images/product 1.3.png",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Arcadia",
+      "category": "Earrings",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1001",
+        "gender": "Female",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "silver",
+        "minLength": "4 cm"
+      },
+      "inventory": 10
+    },
+    {
+      "id": "2",
+      "title": "Silver Fish shape earings",
+      "description": "Beautiful Charm made of Natural Stone with Sterling silver-plated. Leather: No. Size: 12. Colors: Gold. men's dragonfly",
+      "price": "£ 115.00",
+      "priceValue": 115,
+      "bottomLabel": "Free Keyring",
+      "colors": [
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 7.PNG",
+          "img2": "/images/product 7.2.PNG"
+        },
+        "gold": {
+          "img1": "/images/product 2.jpg",
+          "img2": "/images/product 2.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 7.PNG",
+        "/images/product 7.2.PNG",
+        "/images/product 7.3.PNG"
+      ],
+      "collectionName": "Arcadia",
+      "category": "Earrings",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1002",
+        "gender": "Male",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 11
+    },
+    {
+      "id": "3",
+      "title": "Necklaces",
+      "description": "Beautiful Necklaces made of Shell Pearl with 18K gold-plated. Leather: Yes. Size: U. Colors: Silver, Gold. heart best seller",
+      "price": "£ 130.00",
+      "priceValue": 130,
+      "colors": [
+        "silver",
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 3.jpg",
+          "img2": "/images/product 3.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 3.jpg",
+          "img2": "/images/product 3.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 3.jpg",
+        "/images/product 3.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Arcadia",
+      "category": "Necklaces",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1003",
+        "gender": "Female",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "silver / gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 12
+    },
+    {
+      "id": "4",
+      "title": "Earrings",
+      "description": "Beautiful Earrings made of Crafted Crystal with Sterling silver-plated. Leather: No. Size: S. Colors: Silver. ",
+      "price": "£ 145.00",
+      "priceValue": 145,
+      "label": "Best seller",
+      "labelColor": "#e1bbff",
+      "colors": [
+        "silver"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 4.jpg",
+          "img2": "/images/product 4.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 4.jpg",
+          "img2": "/images/product 4.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 4.jpg",
+        "/images/product 4.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Arcadia",
+      "category": "Earrings",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1004",
+        "gender": "Female",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "silver",
+        "minLength": "4 cm"
+      },
+      "inventory": 13
+    },
+    {
+      "id": "5",
+      "title": "Rings",
+      "description": "Beautiful Rings made of Natural Stone with 18K gold-plated. Leather: Yes. Size: M. Colors: Gold, Black. ",
+      "price": "£ 160.00",
+      "priceValue": 160,
+      "colors": [
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 5.jpg",
+          "img2": "/images/product 5.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 5.jpg",
+          "img2": "/images/product 5.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 5.jpg",
+        "/images/product 5.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Arcadia",
+      "category": "Rings",
+      "sizes": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "specs": {
+        "itemCode": "LLA1005",
+        "gender": "Female",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 14
+    },
+    {
+      "id": "6",
+      "title": "Bracelets",
+      "description": "Beautiful Bracelets made of Shell Pearl with Sterling silver-plated. Leather: No. Size: 9. Colors: Silver, Gold. accessory for women",
+      "price": "£ 175.00",
+      "priceValue": 175,
+      "label": "New in",
+      "labelColor": "#cde6ec",
+      "colors": [
+        "silver",
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 6.jpg",
+          "img2": "/images/product 6.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 6.jpg",
+          "img2": "/images/product 6.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 6.jpg",
+        "/images/product 6.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Arcadia",
+      "category": "Bracelets",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1006",
+        "gender": "Female",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "silver / gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 10
+    },
+    {
+      "id": "7",
+      "title": "Charm",
+      "description": "Beautiful Charm made of Crafted Crystal with 18K gold-plated. Leather: Yes. Size: 12. Colors: Silver. men's dragonfly",
+      "price": "£ 190.00",
+      "priceValue": 190,
+      "bottomLabel": "Free Keyring",
+      "colors": [
+        "silver"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 7.jpg",
+          "img2": "/images/product 7.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 7.jpg",
+          "img2": "/images/product 7.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 7.jpg",
+        "/images/product 7.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Arcadia",
+      "category": "Charm",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1007",
+        "gender": "Male",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "silver",
+        "minLength": "4 cm"
+      },
+      "inventory": 11
+    },
+    {
+      "id": "8",
+      "title": "Necklaces",
+      "description": "Beautiful Necklaces made of Natural Stone with Sterling silver-plated. Leather: No. Size: U. Colors: Gold. heart best seller",
+      "price": "£ 205.00",
+      "priceValue": 205,
+      "colors": [
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 8.jpg",
+          "img2": "/images/product 8.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 8.jpg",
+          "img2": "/images/product 8.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 8.jpg",
+        "/images/product 8.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Arcadia",
+      "category": "Necklaces",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1008",
+        "gender": "Female",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 12
+    },
+    {
+      "id": "9",
+      "title": "Earrings",
+      "description": "Beautiful Earrings made of Shell Pearl with 18K gold-plated. Leather: Yes. Size: S. Colors: Silver, Gold, Black. ",
+      "price": "£ 220.00",
+      "priceValue": 220,
+      "label": "Best seller",
+      "labelColor": "#e1bbff",
+      "colors": [
+        "silver",
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 9.jpg",
+          "img2": "/images/product 9.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 9.jpg",
+          "img2": "/images/product 9.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 9.jpg",
+        "/images/product 9.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Silver Collection",
+      "category": "Earrings",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1009",
+        "gender": "Female",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "silver / gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 13
+    },
+    {
+      "id": "10",
+      "title": "Rings",
+      "description": "Beautiful Rings made of Crafted Crystal with Sterling silver-plated. Leather: No. Size: M. Colors: Silver. ",
+      "price": "£ 235.00",
+      "priceValue": 235,
+      "colors": [
+        "silver"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 10.jpg",
+          "img2": "/images/product 10.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 10.jpg",
+          "img2": "/images/product 10.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 10.jpg",
+        "/images/product 10.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Silver Collection",
+      "category": "Rings",
+      "sizes": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "specs": {
+        "itemCode": "LLA1010",
+        "gender": "Female",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "silver",
+        "minLength": "4 cm"
+      },
+      "inventory": 14
+    },
+    {
+      "id": "11",
+      "title": "Bracelets",
+      "description": "Beautiful Bracelets made of Natural Stone with 18K gold-plated. Leather: Yes. Size: 9. Colors: Gold. accessory for women",
+      "price": "£ 250.00",
+      "priceValue": 250,
+      "colors": [
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 11.jpg",
+          "img2": "/images/product 11.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 11.jpg",
+          "img2": "/images/product 11.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 11.jpg",
+        "/images/product 11.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Silver Collection",
+      "category": "Bracelets",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1011",
+        "gender": "Female",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 10
+    },
+    {
+      "id": "12",
+      "title": "Charm",
+      "description": "Beautiful Charm made of Shell Pearl with Sterling silver-plated. Leather: No. Size: 12. Colors: Silver, Gold. men's dragonfly",
+      "price": "£ 265.00",
+      "priceValue": 265,
+      "colors": [
+        "silver",
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 12.jpg",
+          "img2": "/images/product 12.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 12.jpg",
+          "img2": "/images/product 12.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 12.jpg",
+        "/images/product 12.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Silver Collection",
+      "category": "Charm",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1012",
+        "gender": "Male",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "silver / gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 11
+    },
+    {
+      "id": "13",
+      "title": "Necklaces",
+      "description": "Beautiful Necklaces made of Crafted Crystal with 18K gold-plated. Leather: Yes. Size: U. Colors: Silver, Black. heart best seller",
+      "price": "£ 280.00",
+      "priceValue": 280,
+      "colors": [
+        "silver"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 13.jpg",
+          "img2": "/images/product 13.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 13.jpg",
+          "img2": "/images/product 13.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 13.jpg",
+        "/images/product 13.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Silver Collection",
+      "category": "Necklaces",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1013",
+        "gender": "Female",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "silver",
+        "minLength": "4 cm"
+      },
+      "inventory": 12
+    },
+    {
+      "id": "14",
+      "title": "Earrings",
+      "description": "Beautiful Earrings made of Natural Stone with Sterling silver-plated. Leather: No. Size: S. Colors: Gold. ",
+      "price": "£ 295.00",
+      "priceValue": 295,
+      "colors": [
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 14.jpg",
+          "img2": "/images/product 14.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 14.jpg",
+          "img2": "/images/product 14.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 14.jpg",
+        "/images/product 14.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Silver Collection",
+      "category": "Earrings",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1014",
+        "gender": "Female",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 13
+    },
+    {
+      "id": "15",
+      "title": "Rings",
+      "description": "Beautiful Rings made of Shell Pearl with 18K gold-plated. Leather: Yes. Size: M. Colors: Silver, Gold. ",
+      "price": "£ 310.00",
+      "priceValue": 310,
+      "colors": [
+        "silver",
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 15.jpg",
+          "img2": "/images/product 15.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 15.jpg",
+          "img2": "/images/product 15.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 15.jpg",
+        "/images/product 15.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Silver Collection",
+      "category": "Rings",
+      "sizes": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "specs": {
+        "itemCode": "LLA1015",
+        "gender": "Female",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "silver / gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 14
+    },
+    {
+      "id": "16",
+      "title": "Bracelets",
+      "description": "Beautiful Bracelets made of Crafted Crystal with Sterling silver-plated. Leather: No. Size: 9. Colors: Silver. accessory for women",
+      "price": "£ 325.00",
+      "priceValue": 325,
+      "colors": [
+        "silver"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 16.jpg",
+          "img2": "/images/product 16.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 16.jpg",
+          "img2": "/images/product 16.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 16.jpg",
+        "/images/product 16.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Silver Collection",
+      "category": "Bracelets",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1016",
+        "gender": "Female",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "silver",
+        "minLength": "4 cm"
+      },
+      "inventory": 10
+    },
+    {
+      "id": "17",
+      "title": "Charm",
+      "description": "Beautiful Charm made of Natural Stone with 18K gold-plated. Leather: Yes. Size: 12. Colors: Gold, Black. men's dragonfly",
+      "price": "£ 340.00",
+      "priceValue": 340,
+      "colors": [
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 17.jpg",
+          "img2": "/images/product 17.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 17.jpg",
+          "img2": "/images/product 17.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 17.jpg",
+        "/images/product 17.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Charm",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1017",
+        "gender": "Male",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 11
+    },
+    {
+      "id": "18",
+      "title": "Necklaces",
+      "description": "Beautiful Necklaces made of Shell Pearl with Sterling silver-plated. Leather: No. Size: U. Colors: Silver, Gold. heart best seller",
+      "price": "£ 355.00",
+      "priceValue": 355,
+      "colors": [
+        "silver",
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 18.jpg",
+          "img2": "/images/product 18.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 18.jpg",
+          "img2": "/images/product 18.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 18.jpg",
+        "/images/product 18.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Necklaces",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1018",
+        "gender": "Female",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "silver / gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 12
+    },
+    {
+      "id": "19",
+      "title": "Earrings",
+      "description": "Beautiful Earrings made of Crafted Crystal with 18K gold-plated. Leather: Yes. Size: S. Colors: Silver. ",
+      "price": "£ 370.00",
+      "priceValue": 370,
+      "colors": [
+        "silver"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 19.jpg",
+          "img2": "/images/product 19.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 19.jpg",
+          "img2": "/images/product 19.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 19.jpg",
+        "/images/product 19.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Earrings",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1019",
+        "gender": "Female",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "silver",
+        "minLength": "4 cm"
+      },
+      "inventory": 13
+    },
+    {
+      "id": "20",
+      "title": "Rings",
+      "description": "Beautiful Rings made of Natural Stone with Sterling silver-plated. Leather: No. Size: M. Colors: Gold. ",
+      "price": "£ 385.00",
+      "priceValue": 385,
+      "colors": [
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 20.jpg",
+          "img2": "/images/product 20.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 20.jpg",
+          "img2": "/images/product 20.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 20.jpg",
+        "/images/product 20.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Rings",
+      "sizes": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "specs": {
+        "itemCode": "LLA1020",
+        "gender": "Female",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 14
+    },
+    {
+      "id": "21",
+      "title": "Bracelets",
+      "description": "Beautiful Bracelets made of Shell Pearl with 18K gold-plated. Leather: Yes. Size: 9. Colors: Silver, Gold, Black. accessory for women",
+      "price": "£ 400.00",
+      "priceValue": 400,
+      "colors": [
+        "silver",
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 21.jpg",
+          "img2": "/images/product 21.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 21.jpg",
+          "img2": "/images/product 21.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 21.jpg",
+        "/images/product 21.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Bracelets",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1021",
+        "gender": "Female",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "silver / gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 10
+    },
+    {
+      "id": "22",
+      "title": "Charm",
+      "description": "Beautiful Charm made of Crafted Crystal with Sterling silver-plated. Leather: No. Size: 12. Colors: Silver. men's dragonfly",
+      "price": "£ 415.00",
+      "priceValue": 415,
+      "colors": [
+        "silver"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 22.jpg",
+          "img2": "/images/product 22.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 22.jpg",
+          "img2": "/images/product 22.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 22.jpg",
+        "/images/product 22.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Charm",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1022",
+        "gender": "Male",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "silver",
+        "minLength": "4 cm"
+      },
+      "inventory": 11
+    },
+    {
+      "id": "23",
+      "title": "Necklaces",
+      "description": "Beautiful Necklaces made of Natural Stone with 18K gold-plated. Leather: Yes. Size: U. Colors: Gold. heart best seller",
+      "price": "£ 430.00",
+      "priceValue": 430,
+      "colors": [
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 23.jpg",
+          "img2": "/images/product 23.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 23.jpg",
+          "img2": "/images/product 23.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 23.jpg",
+        "/images/product 23.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Necklaces",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1023",
+        "gender": "Female",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 12
+    },
+    {
+      "id": "24",
+      "title": "Earrings",
+      "description": "Beautiful Earrings made of Shell Pearl with Sterling silver-plated. Leather: No. Size: S. Colors: Silver, Gold. ",
+      "price": "£ 445.00",
+      "priceValue": 445,
+      "colors": [
+        "silver",
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 24.jpg",
+          "img2": "/images/product 24.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 24.jpg",
+          "img2": "/images/product 24.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 24.jpg",
+        "/images/product 24.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Earrings",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1024",
+        "gender": "Female",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "silver / gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 13
+    },
+    {
+      "id": "25",
+      "title": "Rings",
+      "description": "Beautiful Rings made of Crafted Crystal with 18K gold-plated. Leather: Yes. Size: M. Colors: Silver, Black. ",
+      "price": "£ 460.00",
+      "priceValue": 460,
+      "colors": [
+        "silver"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 25.jpg",
+          "img2": "/images/product 25.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 25.jpg",
+          "img2": "/images/product 25.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 25.jpg",
+        "/images/product 25.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Rings",
+      "sizes": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "specs": {
+        "itemCode": "LLA1025",
+        "gender": "Female",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "silver",
+        "minLength": "4 cm"
+      },
+      "inventory": 14
+    },
+    {
+      "id": "26",
+      "title": "Bracelets",
+      "description": "Beautiful Bracelets made of Natural Stone with Sterling silver-plated. Leather: No. Size: 9. Colors: Gold. accessory for women",
+      "price": "£ 475.00",
+      "priceValue": 475,
+      "colors": [
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 26.jpg",
+          "img2": "/images/product 26.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 26.jpg",
+          "img2": "/images/product 26.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 26.jpg",
+        "/images/product 26.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Bracelets",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1026",
+        "gender": "Female",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 10
+    },
+    {
+      "id": "27",
+      "title": "Charm",
+      "description": "Beautiful Charm made of Shell Pearl with 18K gold-plated. Leather: Yes. Size: 12. Colors: Silver, Gold. men's dragonfly",
+      "price": "£ 490.00",
+      "priceValue": 490,
+      "colors": [
+        "silver",
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 27.jpg",
+          "img2": "/images/product 27.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 27.jpg",
+          "img2": "/images/product 27.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 27.jpg",
+        "/images/product 27.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Charm",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1027",
+        "gender": "Male",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "silver / gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 11
+    },
+    {
+      "id": "28",
+      "title": "Necklaces",
+      "description": "Beautiful Necklaces made of Crafted Crystal with Sterling silver-plated. Leather: No. Size: U. Colors: Silver. heart best seller",
+      "price": "£ 505.00",
+      "priceValue": 505,
+      "colors": [
+        "silver"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 28.jpg",
+          "img2": "/images/product 28.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 28.jpg",
+          "img2": "/images/product 28.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 28.jpg",
+        "/images/product 28.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Necklaces",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1028",
+        "gender": "Female",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "silver",
+        "minLength": "4 cm"
+      },
+      "inventory": 12
+    },
+    {
+      "id": "29",
+      "title": "Earrings",
+      "description": "Beautiful Earrings made of Natural Stone with 18K gold-plated. Leather: Yes. Size: S. Colors: Gold, Black. ",
+      "price": "£ 520.00",
+      "priceValue": 520,
+      "colors": [
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 29.jpg",
+          "img2": "/images/product 29.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 29.jpg",
+          "img2": "/images/product 29.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 29.jpg",
+        "/images/product 29.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Earrings",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1029",
+        "gender": "Female",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 13
+    },
+    {
+      "id": "30",
+      "title": "Rings",
+      "description": "Beautiful Rings made of Shell Pearl with Sterling silver-plated. Leather: No. Size: M. Colors: Silver, Gold. ",
+      "price": "£ 535.00",
+      "priceValue": 535,
+      "colors": [
+        "silver",
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 30.jpg",
+          "img2": "/images/product 30.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 30.jpg",
+          "img2": "/images/product 30.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 30.jpg",
+        "/images/product 30.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Rings",
+      "sizes": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "specs": {
+        "itemCode": "LLA1030",
+        "gender": "Female",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "silver / gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 14
+    },
+    {
+      "id": "31",
+      "title": "Bracelets",
+      "description": "Beautiful Bracelets made of Crafted Crystal with 18K gold-plated. Leather: Yes. Size: 9. Colors: Silver. accessory for women",
+      "price": "£ 550.00",
+      "priceValue": 550,
+      "colors": [
+        "silver"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 31.jpg",
+          "img2": "/images/product 31.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 31.jpg",
+          "img2": "/images/product 31.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 31.jpg",
+        "/images/product 31.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Bracelets",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1031",
+        "gender": "Female",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "silver",
+        "minLength": "4 cm"
+      },
+      "inventory": 10
+    },
+    {
+      "id": "32",
+      "title": "Charm",
+      "description": "Beautiful Charm made of Natural Stone with Sterling silver-plated. Leather: No. Size: 12. Colors: Gold. men's dragonfly",
+      "price": "£ 565.00",
+      "priceValue": 565,
+      "colors": [
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 32.jpg",
+          "img2": "/images/product 32.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 32.jpg",
+          "img2": "/images/product 32.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 32.jpg",
+        "/images/product 32.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Charm",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1032",
+        "gender": "Male",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 11
+    },
+    {
+      "id": "33",
+      "title": "Necklaces",
+      "description": "Beautiful Necklaces made of Shell Pearl with 18K gold-plated. Leather: Yes. Size: U. Colors: Silver, Gold, Black. heart best seller",
+      "price": "£ 580.00",
+      "priceValue": 580,
+      "colors": [
+        "silver",
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 33.jpg",
+          "img2": "/images/product 33.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 33.jpg",
+          "img2": "/images/product 33.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 33.jpg",
+        "/images/product 33.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Necklaces",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1033",
+        "gender": "Female",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "silver / gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 12
+    },
+    {
+      "id": "34",
+      "title": "Earrings",
+      "description": "Beautiful Earrings made of Crafted Crystal with Sterling silver-plated. Leather: No. Size: S. Colors: Silver. ",
+      "price": "£ 595.00",
+      "priceValue": 595,
+      "colors": [
+        "silver"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 34.jpg",
+          "img2": "/images/product 34.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 34.jpg",
+          "img2": "/images/product 34.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 34.jpg",
+        "/images/product 34.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Earrings",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1034",
+        "gender": "Female",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "silver",
+        "minLength": "4 cm"
+      },
+      "inventory": 13
+    },
+    {
+      "id": "35",
+      "title": "Rings",
+      "description": "Beautiful Rings made of Natural Stone with 18K gold-plated. Leather: Yes. Size: M. Colors: Gold. ",
+      "price": "£ 610.00",
+      "priceValue": 610,
+      "colors": [
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 35.jpg",
+          "img2": "/images/product 35.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 35.jpg",
+          "img2": "/images/product 35.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 35.jpg",
+        "/images/product 35.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Rings",
+      "sizes": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "specs": {
+        "itemCode": "LLA1035",
+        "gender": "Female",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 14
+    },
+    {
+      "id": "36",
+      "title": "Bracelets",
+      "description": "Beautiful Bracelets made of Shell Pearl with Sterling silver-plated. Leather: No. Size: 9. Colors: Silver, Gold. accessory for women",
+      "price": "£ 625.00",
+      "priceValue": 625,
+      "colors": [
+        "silver",
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 36.jpg",
+          "img2": "/images/product 36.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 36.jpg",
+          "img2": "/images/product 36.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 36.jpg",
+        "/images/product 36.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Bracelets",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1036",
+        "gender": "Female",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "silver / gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 10
+    },
+    {
+      "id": "37",
+      "title": "Charm",
+      "description": "Beautiful Charm made of Crafted Crystal with 18K gold-plated. Leather: Yes. Size: 12. Colors: Silver, Black. men's dragonfly",
+      "price": "£ 640.00",
+      "priceValue": 640,
+      "colors": [
+        "silver"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 37.jpg",
+          "img2": "/images/product 37.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 37.jpg",
+          "img2": "/images/product 37.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 37.jpg",
+        "/images/product 37.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Charm",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1037",
+        "gender": "Male",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "silver",
+        "minLength": "4 cm"
+      },
+      "inventory": 11
+    },
+    {
+      "id": "38",
+      "title": "Necklaces",
+      "description": "Beautiful Necklaces made of Natural Stone with Sterling silver-plated. Leather: No. Size: U. Colors: Gold. heart best seller",
+      "price": "£ 655.00",
+      "priceValue": 655,
+      "colors": [
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 38.jpg",
+          "img2": "/images/product 38.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 38.jpg",
+          "img2": "/images/product 38.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 38.jpg",
+        "/images/product 38.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Necklaces",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1038",
+        "gender": "Female",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 12
+    },
+    {
+      "id": "39",
+      "title": "Earrings",
+      "description": "Beautiful Earrings made of Shell Pearl with 18K gold-plated. Leather: Yes. Size: S. Colors: Silver, Gold. ",
+      "price": "£ 670.00",
+      "priceValue": 670,
+      "colors": [
+        "silver",
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 39.jpg",
+          "img2": "/images/product 39.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 39.jpg",
+          "img2": "/images/product 39.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 39.jpg",
+        "/images/product 39.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Earrings",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1039",
+        "gender": "Female",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "silver / gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 13
+    },
+    {
+      "id": "40",
+      "title": "Rings",
+      "description": "Beautiful Rings made of Crafted Crystal with Sterling silver-plated. Leather: No. Size: M. Colors: Silver. ",
+      "price": "£ 685.00",
+      "priceValue": 685,
+      "colors": [
+        "silver"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 40.jpg",
+          "img2": "/images/product 40.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 40.jpg",
+          "img2": "/images/product 40.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 40.jpg",
+        "/images/product 40.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Rings",
+      "sizes": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "specs": {
+        "itemCode": "LLA1040",
+        "gender": "Female",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "silver",
+        "minLength": "4 cm"
+      },
+      "inventory": 14
+    },
+    {
+      "id": "41",
+      "title": "Bracelets",
+      "description": "Beautiful Bracelets made of Natural Stone with 18K gold-plated. Leather: Yes. Size: 9. Colors: Gold, Black. accessory for women",
+      "price": "£ 700.00",
+      "priceValue": 700,
+      "colors": [
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 41.jpg",
+          "img2": "/images/product 41.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 41.jpg",
+          "img2": "/images/product 41.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 41.jpg",
+        "/images/product 41.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Bracelets",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1041",
+        "gender": "Female",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 10
+    },
+    {
+      "id": "42",
+      "title": "Charm",
+      "description": "Beautiful Charm made of Shell Pearl with Sterling silver-plated. Leather: No. Size: 12. Colors: Silver, Gold. men's dragonfly",
+      "price": "£ 715.00",
+      "priceValue": 715,
+      "colors": [
+        "silver",
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 42.jpg",
+          "img2": "/images/product 42.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 42.jpg",
+          "img2": "/images/product 42.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 42.jpg",
+        "/images/product 42.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Charm",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1042",
+        "gender": "Male",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "silver / gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 11
+    },
+    {
+      "id": "43",
+      "title": "Necklaces",
+      "description": "Beautiful Necklaces made of Crafted Crystal with 18K gold-plated. Leather: Yes. Size: U. Colors: Silver. heart best seller",
+      "price": "£ 730.00",
+      "priceValue": 730,
+      "colors": [
+        "silver"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 43.jpg",
+          "img2": "/images/product 43.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 43.jpg",
+          "img2": "/images/product 43.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 43.jpg",
+        "/images/product 43.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Necklaces",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1043",
+        "gender": "Female",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "silver",
+        "minLength": "4 cm"
+      },
+      "inventory": 12
+    },
+    {
+      "id": "44",
+      "title": "Earrings",
+      "description": "Beautiful Earrings made of Natural Stone with Sterling silver-plated. Leather: No. Size: S. Colors: Gold. ",
+      "price": "£ 745.00",
+      "priceValue": 745,
+      "colors": [
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 44.jpg",
+          "img2": "/images/product 44.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 44.jpg",
+          "img2": "/images/product 44.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 44.jpg",
+        "/images/product 44.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Earrings",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1044",
+        "gender": "Female",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 13
+    },
+    {
+      "id": "45",
+      "title": "Rings",
+      "description": "Beautiful Rings made of Shell Pearl with 18K gold-plated. Leather: Yes. Size: M. Colors: Silver, Gold, Black. ",
+      "price": "£ 760.00",
+      "priceValue": 760,
+      "colors": [
+        "silver",
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 45.jpg",
+          "img2": "/images/product 45.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 45.jpg",
+          "img2": "/images/product 45.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 45.jpg",
+        "/images/product 45.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Rings",
+      "sizes": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "specs": {
+        "itemCode": "LLA1045",
+        "gender": "Female",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "silver / gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 14
+    },
+    {
+      "id": "46",
+      "title": "Bracelets",
+      "description": "Beautiful Bracelets made of Crafted Crystal with Sterling silver-plated. Leather: No. Size: 9. Colors: Silver. accessory for women",
+      "price": "£ 775.00",
+      "priceValue": 775,
+      "colors": [
+        "silver"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 46.jpg",
+          "img2": "/images/product 46.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 46.jpg",
+          "img2": "/images/product 46.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 46.jpg",
+        "/images/product 46.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Bracelets",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1046",
+        "gender": "Female",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "silver",
+        "minLength": "4 cm"
+      },
+      "inventory": 10
+    },
+    {
+      "id": "47",
+      "title": "Charm",
+      "description": "Beautiful Charm made of Natural Stone with 18K gold-plated. Leather: Yes. Size: 12. Colors: Gold. men's dragonfly",
+      "price": "£ 790.00",
+      "priceValue": 790,
+      "colors": [
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 47.jpg",
+          "img2": "/images/product 47.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 47.jpg",
+          "img2": "/images/product 47.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 47.jpg",
+        "/images/product 47.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Charm",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1047",
+        "gender": "Male",
+        "plating": "18K Gold Plated",
+        "material": "Leather & Metal",
+        "color": "gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 11
+    },
+    {
+      "id": "48",
+      "title": "Necklaces",
+      "description": "Beautiful Necklaces made of Shell Pearl with Sterling silver-plated. Leather: No. Size: U. Colors: Silver, Gold. heart best seller",
+      "price": "£ 805.00",
+      "priceValue": 805,
+      "colors": [
+        "silver",
+        "gold"
+      ],
+      "images": {
+        "silver": {
+          "img1": "/images/product 48.jpg",
+          "img2": "/images/product 48.1.jpg"
+        },
+        "gold": {
+          "img1": "/images/product 48.jpg",
+          "img2": "/images/product 48.1.jpg"
+        }
+      },
+      "galleryImages": [
+        "/images/product 48.jpg",
+        "/images/product 48.1.jpg",
+        "/images/banner 4.jpg",
+        "/images/banner 3.jpg"
+      ],
+      "collectionName": "Classic",
+      "category": "Necklaces",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "specs": {
+        "itemCode": "LLA1048",
+        "gender": "Female",
+        "plating": "Sterling Silver",
+        "material": "Leather & Metal",
+        "color": "silver / gold",
+        "minLength": "4 cm"
+      },
+      "inventory": 12
+    }
+  ],
+  "stores": [
+    {
+      "id": "1",
+      "name": "Cielora Flagship Store",
+      "address": "123 Fashion Avenue",
+      "city": "Amsterdam",
+      "postcode": "1012 AB",
+      "country": "The Netherlands",
+      "phone": "+31 20 123 4567",
+      "email": "store@cielora.com",
+      "googleMapsUrl": "https://maps.google.com/maps?q=52.37307,4.89264+(Cielora+Flagship+Store)&t=&z=16&ie=UTF8&iwloc=B&output=embed"
+    },
+    {
+      "id": "2",
+      "name": "Cielora London Boutique",
+      "address": "45 Regent St",
+      "city": "London",
+      "postcode": "W1B 4DY",
+      "country": "United Kingdom",
+      "phone": "+44 20 7946 0958",
+      "email": "london@cielora.com",
+      "googleMapsUrl": "https://maps.google.com/maps?q=51.509865,-0.134882+(Cielora+London+Boutique)&t=&z=16&ie=UTF8&iwloc=B&output=embed"
+    }
+  ],
+  "banners": [
+    {
+      "id": "topHero",
+      "name": "Top Hero Section",
+      "image": "/images/Banner_GWP_LlaveroDAD_desktop.webp",
+      "title": "For dad",
+      "subtitle": "",
+      "link": "/for-him",
+      "linkLabel": "VIEW MEN'S JEWELRY >",
+      "visible": true
+    },
+    {
+      "id": "arcadia",
+      "name": "Arcadia Section",
+      "image": "/images/HEADER_NEW-IN_ARCADIA_desktop.jpg",
+      "title": "New in",
+      "subtitle": "",
+      "link": "/collections?filter=Arcadia",
+      "linkLabel": "Discover",
+      "visible": true
+    },
+    {
+      "id": "midBanner",
+      "name": "Sticky Icons Section",
+      "image": "/images/banner 3.jpg",
+      "title": "Icons that always come back",
+      "subtitle": "",
+      "link": "/shop-by?filter=UNOde50+Icons",
+      "linkLabel": "DISCOVER",
+      "visible": true
+    },
+    {
+      "id": "flutter",
+      "name": "Flutter Section",
+      "image": "/images/banner 4.jpg",
+      "title": "Discover Flutter",
+      "subtitle": "",
+      "link": "/collections?filter=Flutter",
+      "linkLabel": "DISCOVER FLUTTER >",
+      "visible": true
+    },
+    {
+      "id": "luminis",
+      "name": "Luminis Edition Section",
+      "image": "/images/banner 5.webp",
+      "title": "Luminis Edition",
+      "subtitle": "",
+      "link": "/collections?filter=Luminis+Edition",
+      "linkLabel": "DISCOVER THE COLLECTION >",
+      "visible": true
+    }
+  ],
+  "labels": [
+    {
+      "id": "1",
+      "name": "New in",
+      "color": "#cde6ec"
+    },
+    {
+      "id": "2",
+      "name": "Best seller",
+      "color": "#e1bbff"
+    },
+    {
+      "id": "3",
+      "name": "Free Keyring",
+      "color": "#7ce5bf"
+    },
+    {
+      "id": "4",
+      "name": "Free Shipping",
+      "color": "#ffb3c7"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ORD-2026-9871",
+      "customerName": "John Doe",
+      "customerEmail": "john.doe@example.com",
+      "customerPhone": "+44 7911 123456",
+      "shippingAddress": "45 Regent St, London, W1B 4DY, UK",
+      "items": [
+        {
+          "id": "1",
+          "title": "Silver Earring",
+          "price": "£ 165.00",
+          "priceValue": 165,
+          "quantity": 1,
+          "color": "silver",
+          "image": "/images/product 1.2.PNG"
+        }
+      ],
+      "subtotal": 165,
+      "tax": 28.63,
+      "total": 193.63,
+      "status": "Delivered",
+      "courier": "Royal Mail",
+      "trackingCode": "GB123456789RM",
+      "date": "2026-06-15T10:30:00.000Z"
+    },
+    {
+      "id": "ORD-2026-9872",
+      "customerName": "Emma Watson",
+      "customerEmail": "emma.w@example.com",
+      "customerPhone": "+31 6 1234 5678",
+      "shippingAddress": "Keizersgracht 456, 1016 GD Amsterdam, NL",
+      "items": [
+        {
+          "id": "2",
+          "title": "Silver Fish shape earings",
+          "price": "£ 115.00",
+          "priceValue": 115,
+          "quantity": 2,
+          "color": "silver",
+          "image": "/images/product 7.PNG"
+        }
+      ],
+      "subtotal": 230,
+      "tax": 39.91,
+      "total": 269.91,
+      "status": "Processing",
+      "courier": "",
+      "trackingCode": "",
+      "date": "2026-06-16T15:45:00.000Z"
+    }
+  ],
+  "navbarTabs": [
+    {
+      "name": "Limited Edition",
+      "href": "/limited-edition"
+    },
+    {
+      "name": "Shop by",
+      "href": "/shop-by"
+    },
+    {
+      "name": "Collections",
+      "href": "/collections"
+    },
+    {
+      "name": "Bracelets",
+      "href": "/bracelets"
+    },
+    {
+      "name": "Earrings",
+      "href": "/earrings"
+    },
+    {
+      "name": "Necklaces",
+      "href": "/necklaces"
+    },
+    {
+      "name": "Rings",
+      "href": "/rings"
+    },
+    {
+      "name": "Charms",
+      "href": "/charms"
+    },
+    {
+      "name": "For him",
+      "href": "/for-him"
+    },
+    {
+      "name": "Outlet",
+      "href": "/outlet"
+    }
+  ],
+  "settings": {
+    "klarnaEnabled": true,
+    "paypalEnabled": true,
+    "installmentsCount": 3,
+    "legalDisclaimer": "18+, T&C apply, Credit subject to status.",
+    "shippingReturns": {
+      "freeReturnsDays": 30,
+      "freeDeliveryText": "Free standard delivery",
+      "helpLink": "#",
+      "handcraftedText": "Our jewelry is made in Spain and 100% handcrafted."
+    }
+  }
+}

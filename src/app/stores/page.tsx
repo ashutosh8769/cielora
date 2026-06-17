@@ -1,55 +1,100 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+interface Store {
+  id: string;
+  name: string;
+  address: string;
+  city: string;
+  postcode: string;
+  country: string;
+  phone: string;
+  email: string;
+  googleMapsUrl: string;
+}
 
 export default function StoresPage() {
-  const [showExactLocation, setShowExactLocation] = useState(false);
+  const [stores, setStores] = useState<Store[]>([]);
+  const [selectedStore, setSelectedStore] = useState<Store | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  const handleShowOnMap = () => {
-    setShowExactLocation(true);
-  };
+  useEffect(() => {
+    fetch("/api/db")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.stores && data.stores.length > 0) {
+          setStores(data.stores);
+          setSelectedStore(data.stores[0]);
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error loading stores:", err);
+        setLoading(false);
+      });
+  }, []);
 
-  const mapUrl = showExactLocation
-    ? "https://maps.google.com/maps?q=52.37307,4.89264+(Cielora+Flagship+Store)&t=&z=16&ie=UTF8&iwloc=B&output=embed"
-    : "https://maps.google.com/maps?q=Amsterdam&t=&z=10&ie=UTF8&iwloc=&output=embed";
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-[calc(100vh-70px)] bg-white text-gray-500 font-medium">
+        Loading store locations...
+      </div>
+    );
+  }
+
+  if (stores.length === 0) {
+    return (
+      <div className="flex items-center justify-center min-h-[calc(100vh-70px)] bg-white text-gray-500 font-medium">
+        No store locations configured.
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col md:flex-row min-h-[calc(100vh-70px)] bg-white">
       {/* Left Panel */}
-      <div className="w-full md:w-[380px] lg:w-[450px] p-8 md:p-12 flex-shrink-0 bg-white z-10 shadow-md md:shadow-none overflow-y-auto">
-        <h1 className="text-[22px] font-medium text-[#c43e27] mb-8">Store</h1>
+      <div className="w-full md:w-[380px] lg:w-[450px] p-6 md:p-8 flex-shrink-0 bg-white z-10 shadow-md md:shadow-none overflow-y-auto border-r border-gray-100 flex flex-col gap-6">
+        <h1 className="text-[22px] font-medium text-[#c43e27]">Stores</h1>
         
-        <div className="flex flex-col gap-6">
-          <div className="text-gray-700 leading-relaxed text-[15px]">
-            <p className="font-medium text-black mb-1">Cielora Flagship Store</p>
-            <p>123 Fashion Avenue</p>
-            <p>1012 AB Amsterdam</p>
-            <p>The Netherlands</p>
-            <p className="mt-4">Phone: +31 20 123 4567</p>
-            <p>Email: store@cielora.com</p>
-          </div>
-          
-          <button
-            type="button"
-            onClick={handleShowOnMap}
-            className="w-full bg-black hover:bg-white text-white hover:text-black border border-black text-[14px] font-medium py-3 rounded-[2px] transition-colors mt-2 uppercase tracking-wide"
-          >
-            find store on map
-          </button>
+        <div className="flex flex-col gap-5">
+          {stores.map((store) => (
+            <div
+              key={store.id}
+              onClick={() => setSelectedStore(store)}
+              className={`p-5 cursor-pointer border transition-all rounded-[3px] ${
+                selectedStore?.id === store.id
+                  ? "border-[#d2977a] bg-[#fffbf7]"
+                  : "border-gray-200 hover:border-gray-300"
+              }`}
+            >
+              <p className="font-semibold text-[15px] text-gray-900 mb-2">{store.name}</p>
+              <div className="text-gray-600 leading-relaxed text-[13px]">
+                <p>{store.address}</p>
+                <p>{store.postcode} {store.city}</p>
+                <p>{store.country}</p>
+                {store.phone && <p className="mt-3 font-medium text-gray-800">Phone: {store.phone}</p>}
+                {store.email && <p className="font-medium text-gray-800">Email: {store.email}</p>}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
       {/* Map Panel */}
       <div className="flex-1 min-h-[400px] md:min-h-auto relative bg-[#e5e3df]">
-        <iframe 
-          src={mapUrl}
-          className="absolute inset-0 w-full h-full border-0" 
-          allowFullScreen 
-          loading="lazy" 
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Store Locator Map"
-        ></iframe>
+        {selectedStore && (
+          <iframe 
+            src={selectedStore.googleMapsUrl}
+            className="absolute inset-0 w-full h-full border-0" 
+            allowFullScreen 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+            title={`${selectedStore.name} Map`}
+          ></iframe>
+        )}
       </div>
     </div>
   );
 }
+
