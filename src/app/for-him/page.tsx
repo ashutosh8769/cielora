@@ -133,15 +133,12 @@ function ForHimContent() {
     { name: "Turquoise", count: 0 },
     { name: "Camel", count: 0 }
   ];
-  const topFilters = [
-    "Bracelets for men", "Silver bracelets for men", "Leather bracelets for men", "Chain and Link bracelets", "Rings for men", "Necklaces for men", "Watches", "Keychains", "Men's Best Sellers"
-  ];
+  const { products: dbProducts, navbarTabs, loading } = useProducts();
+  const topFilters = navbarTabs.find(t => t.href === '/for-him')?.groupFilters || [];
 
   const bottomFilters = [
     "CATEGORY", "PRICE", "SIZE", "PLATING", "COMPONENT", "LEATHER", "COLOR"
   ];
-
-  const { products: dbProducts, loading } = useProducts();
 
   // Show products in the database that mention 'men's' or have gender Male in specs
   const categoryProducts = dbProducts.filter(p => p.description.toLowerCase().includes("men's") || p.specs?.gender?.toLowerCase() === "male");

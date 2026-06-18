@@ -130,15 +130,12 @@ function RingsContent() {
     { name: "Turquoise", count: 0 },
     { name: "Camel", count: 0 }
   ];
-  const topFilters = [
-    "Silver Rings", "Gold Rings", "Crystal Rings", "Minimal Rings", "Rings for Special Occasions", "Best Selling Rings"
-  ];
+  const { products: dbProducts, navbarTabs, loading } = useProducts();
+  const topFilters = navbarTabs.find(t => t.href === '/rings')?.groupFilters || [];
 
   const bottomFilters = [
     "CATEGORY", "PRICE", "SIZE", "PLATING", "COMPONENT", "LEATHER", "COLOR"
   ];
-
-  const { products: dbProducts, loading } = useProducts();
 
   const categoryProducts = dbProducts.filter(p => p.category?.toLowerCase().includes("ring"));
 

@@ -5,6 +5,7 @@ import { Product } from "@/lib/db";
 
 export function useProducts() {
   const [products, setProducts] = useState<Product[]>([]);
+  const [navbarTabs, setNavbarTabs] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -14,6 +15,9 @@ export function useProducts() {
         if (data.products) {
           setProducts(data.products);
         }
+        if (data.navbarTabs) {
+          setNavbarTabs(data.navbarTabs);
+        }
         setLoading(false);
       })
       .catch((err) => {
@@ -22,5 +26,5 @@ export function useProducts() {
       });
   }, []);
 
-  return { products, loading };
+  return { products, navbarTabs, loading };
 }

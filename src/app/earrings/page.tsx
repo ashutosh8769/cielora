@@ -134,15 +134,12 @@ function EarringsContent() {
     { name: "Turquoise", count: 0 },
     { name: "Camel", count: 0 }
   ];
-  const topFilters = [
-    "Silver Earrings", "Gold Earrings", "Pearl Earrings", "Hoop Earrings", "Drop Earrings", "Stud Earrings", "Single Earrings", "Heart-Shaped Earrings", "Best selling earrings", "Earrings for Special Occasions"
-  ];
+  const { products: dbProducts, navbarTabs, loading } = useProducts();
+  const topFilters = navbarTabs.find(t => t.href === '/earrings')?.groupFilters || [];
 
   const bottomFilters = [
     "CATEGORY", "PRICE", "SIZE", "PLATING", "COMPONENT", "LEATHER", "COLOR"
   ];
-
-  const { products: dbProducts, loading } = useProducts();
 
   const categoryProducts = dbProducts.filter(p => p.category?.toLowerCase().includes("earring"));
 

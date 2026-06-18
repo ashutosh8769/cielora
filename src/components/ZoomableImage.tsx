@@ -32,15 +32,30 @@ export default function ZoomableImage({ src, alt }: ZoomableImageProps) {
       }}
       onMouseMove={handleMouseMove}
     >
-      <img 
-        src={src} 
-        alt={alt} 
-        className={`w-full h-full object-cover transition-transform ease-out ${isHovering ? 'duration-75' : 'duration-300'}`}
-        style={{
-          transformOrigin: `${position.x}% ${position.y}%`,
-          transform: isHovering ? "scale(1.8)" : "scale(1)"
-        }}
-      />
+      {src.match(/\.(mp4|webm|ogg)$/i) ? (
+        <video 
+          src={src} 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className={`w-full h-full object-cover transition-transform ease-out ${isHovering ? 'duration-75' : 'duration-300'}`}
+          style={{
+            transformOrigin: `${position.x}% ${position.y}%`,
+            transform: isHovering ? "scale(1.8)" : "scale(1)"
+          }}
+        />
+      ) : (
+        <img 
+          src={src} 
+          alt={alt} 
+          className={`w-full h-full object-cover transition-transform ease-out ${isHovering ? 'duration-75' : 'duration-300'}`}
+          style={{
+            transformOrigin: `${position.x}% ${position.y}%`,
+            transform: isHovering ? "scale(1.8)" : "scale(1)"
+          }}
+        />
+      )}
     </div>
   );
 }

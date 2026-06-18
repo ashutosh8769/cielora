@@ -137,18 +137,12 @@ function BraceletsContent() {
     { name: "Turquoise", count: 0 },
     { name: "Camel", count: 0 }
   ];
-  const topFilters = [
-    "Silver Bracelets", "Gold Bracelets", "Leather Bracelets", "Pearl Bracelets", 
-    "Cord Bracelets", "Bangle Bracelets", "Cuff Bracelets", "Link Bracelets", 
-    "Beaded Bracelets", "Bracelets for Men", "Birthstone Bracelets", 
-    "Charm Bracelets", "Best Selling Bracelets"
-  ];
+  const { products: dbProducts, navbarTabs, loading } = useProducts();
+  const topFilters = navbarTabs.find(t => t.href === '/bracelets')?.groupFilters || [];
 
   const bottomFilters = [
     "CATEGORY", "PRICE", "SIZE", "PLATING", "COMPONENT", "LEATHER", "COLOR"
   ];
-
-  const { products: dbProducts, loading } = useProducts();
 
   const categoryProducts = dbProducts.filter(p => p.category?.toLowerCase().includes("bracelet"));
 

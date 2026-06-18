@@ -125,18 +125,12 @@ export default function ShopByPage() {
     { name: "Turquoise", count: 0 },
     { name: "Camel", count: 0 }
   ];
-  const topFilters = [
-    "Women's jewelry", "Men's jewelry", "Accesories", "Heart Jewelry", "Dragonfly Jewelry",
-    "Silver Jewelry", "Gold Jewelry", "Leather Jewelry", "Crystal Jewelry", "Limited Edition",
-    "Best Sellers", "Special events jewerly", "Everyday Jewelry", "Genderless Jewelry",
-    "UNOde50 Icons", "Gold and silver jewelry"
-  ];
+  const { products: dbProducts, navbarTabs, loading } = useProducts();
+  const topFilters = navbarTabs.find(t => t.href === '/shop-by')?.groupFilters || [];
 
   const bottomFilters = [
     "CATEGORY", "PRICE", "SIZE", "PLATING", "COMPONENT", "LEATHER", "COLOR"
   ];
-
-  const { products: dbProducts, loading } = useProducts();
 
   const filteredProducts = dbProducts.filter(p => {
     const textToSearch = (p.title + " " + p.description + " " + (p.collectionName || "")).toLowerCase();

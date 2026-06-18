@@ -31,6 +31,9 @@ export interface Product {
     [key: string]: string;
   };
   inventory: number; // For low stock alerts
+  isLimitedEdition?: boolean;
+  showcaseTitle?: string;
+  showcaseText?: string;
 }
 
 export interface Store {
@@ -54,6 +57,15 @@ export interface Banner {
   link: string;
   linkLabel: string;
   visible: boolean;
+  linkedProductsTitle?: string;
+  linkedProductIds?: (string | null)[];
+}
+
+export interface HomeCard {
+  id: string;
+  title: string;
+  image: string;
+  link: string;
 }
 
 export interface Label {
@@ -88,9 +100,28 @@ export interface Order {
   date: string;
 }
 
+export interface MegaMenuLink {
+  name: string;
+  href: string;
+  badge?: string;
+}
+
+export interface MegaMenuColumn {
+  title: string;
+  links: MegaMenuLink[];
+}
+
+export interface MegaMenu {
+  columns: MegaMenuColumn[];
+  featureTitle?: string;
+  featureImage?: string;
+}
+
 export interface NavbarTab {
   name: string;
   href: string;
+  megaMenu?: MegaMenu;
+  groupFilters?: string[];
 }
 
 export interface GlobalSettings {
@@ -106,14 +137,30 @@ export interface GlobalSettings {
   };
 }
 
+export interface LimitedEditionSettings {
+  bannerImage: string;
+  introTitle: string;
+  introText1: string;
+  introText2: string;
+}
+
+export interface AdminUser {
+  id: string;
+  email: string;
+  role: "owner" | "admin";
+}
+
 export interface DbSchema {
   products: Product[];
   stores: Store[];
   banners: Banner[];
+  homeCards: HomeCard[];
   labels: Label[];
   orders: Order[];
   navbarTabs: NavbarTab[];
   settings: GlobalSettings;
+  limitedEditionSettings: LimitedEditionSettings;
+  admins: AdminUser[];
 }
 
 const DB_PATH = path.join(process.cwd(), "src", "data", "db.json");
@@ -155,6 +202,61 @@ function getInitialDbState(): DbSchema {
     };
   });
 
+  // Inject Limited Edition Products
+  formattedProducts.push(
+    {
+      id: "le-1",
+      title: "Only You Necklace",
+      description: "Like a chain of decisions that need no explanation, each metal bead acts as an independent artistic object, with irregular textures that ensure no two elements will ever be identical. A sculptural ensemble designed to be showcased as a piece of handcrafted luxury.",
+      price: "£ 215.00",
+      priceValue: 215,
+      colors: ["silver"],
+      images: { silver: { img1: "/images/product 2.jpg", img2: "/images/product 2.jpg" } },
+      collectionName: "Limited Edition",
+      category: "Necklaces",
+      sizes: ["S", "M", "L"],
+      specs: { itemCode: "LE1001", gender: "Female", plating: "Sterling Silver", material: "Metal", color: "Silver", minLength: "4 cm" },
+      inventory: 50,
+      isLimitedEdition: true,
+      showcaseTitle: "ONLY YOU",
+      showcaseText: "Like a chain of decisions that need no explanation, each metal bead acts as an independent artistic object, with irregular textures that ensure no two elements will ever be identical. A sculptural ensemble designed to be showcased as a piece of handcrafted luxury."
+    },
+    {
+      id: "le-2",
+      title: "Arcadia Necklace",
+      description: "Another stunning piece of handcrafted jewelry, reflecting the perfect blend of tradition and modernity. Each element tells a unique story, carefully designed to highlight the beauty and elegance of its wearer.",
+      price: "£ 195.00",
+      priceValue: 195,
+      colors: ["silver"],
+      images: { silver: { img1: "/images/product 3.jpg", img2: "/images/product 3.jpg" } },
+      collectionName: "Limited Edition",
+      category: "Necklaces",
+      sizes: ["S", "M", "L"],
+      specs: { itemCode: "LE1002", gender: "Female", plating: "Sterling Silver", material: "Metal", color: "Silver", minLength: "4 cm" },
+      inventory: 50,
+      isLimitedEdition: true,
+      showcaseTitle: "ARCADIA",
+      showcaseText: "Another stunning piece of handcrafted jewelry, reflecting the perfect blend of tradition and modernity. Each element tells a unique story, carefully designed to highlight the beauty and elegance of its wearer."
+    },
+    {
+      id: "le-3",
+      title: "Eternity Collection",
+      description: "A timeless piece crafted to capture the essence of forever. This elegant design combines classic beauty with modern sophistication, making it the perfect statement of enduring style.",
+      price: "£ 250.00",
+      priceValue: 250,
+      colors: ["silver"],
+      images: { silver: { img1: "/images/product 4.jpg", img2: "/images/product 4.jpg" } },
+      collectionName: "Limited Edition",
+      category: "Necklaces",
+      sizes: ["S", "M", "L"],
+      specs: { itemCode: "LE1003", gender: "Female", plating: "Sterling Silver", material: "Metal", color: "Silver", minLength: "4 cm" },
+      inventory: 50,
+      isLimitedEdition: true,
+      showcaseTitle: "ETERNITY",
+      showcaseText: "A timeless piece crafted to capture the essence of forever. This elegant design combines classic beauty with modern sophistication, making it the perfect statement of enduring style."
+    }
+  );
+
   const stores: Store[] = [
     {
       id: "1",
@@ -180,6 +282,11 @@ function getInitialDbState(): DbSchema {
     }
   ];
 
+  const getPaddedIds = (coll: string) => {
+    const ids = formattedProducts.filter(p => p.collectionName === coll).map(p => p.id).slice(0, 8);
+    return Array.from({ length: 8 }, (_, i) => ids[i] || null);
+  };
+
   const banners: Banner[] = [
     {
       id: "topHero",
@@ -189,7 +296,9 @@ function getInitialDbState(): DbSchema {
       subtitle: "",
       link: "/for-him",
       linkLabel: "VIEW MEN'S JEWELRY >",
-      visible: true
+      visible: true,
+      linkedProductsTitle: "Silver Collection",
+      linkedProductIds: getPaddedIds("Silver Collection")
     },
     {
       id: "arcadia",
@@ -199,7 +308,9 @@ function getInitialDbState(): DbSchema {
       subtitle: "",
       link: "/collections?filter=Arcadia",
       linkLabel: "Discover",
-      visible: true
+      visible: true,
+      linkedProductsTitle: "Arcadia",
+      linkedProductIds: getPaddedIds("Arcadia")
     },
     {
       id: "midBanner",
@@ -219,7 +330,9 @@ function getInitialDbState(): DbSchema {
       subtitle: "",
       link: "/collections?filter=Flutter",
       linkLabel: "DISCOVER FLUTTER >",
-      visible: true
+      visible: true,
+      linkedProductsTitle: "Classic",
+      linkedProductIds: getPaddedIds("Classic")
     },
     {
       id: "luminis",
@@ -233,6 +346,13 @@ function getInitialDbState(): DbSchema {
     }
   ];
 
+  const homeCards: HomeCard[] = [
+    { id: "card1", title: "BRACELETS", image: "/images/CATEGORIAS_1.webp", link: "/bracelets" },
+    { id: "card2", title: "RINGS", image: "/images/CATEGORIAS_2.webp", link: "/rings" },
+    { id: "card3", title: "NECKLACES", image: "/images/CATEGORIAS_3.webp", link: "/necklaces" },
+    { id: "card4", title: "EARRINGS", image: "/images/CATEGORIAS_4.webp", link: "/earrings" }
+  ];
+
   const labels: Label[] = [
     { id: "1", name: "New in", color: "#cde6ec" },
     { id: "2", name: "Best seller", color: "#e1bbff" },
@@ -242,14 +362,279 @@ function getInitialDbState(): DbSchema {
 
   const navbarTabs: NavbarTab[] = [
     { name: "Limited Edition", href: "/limited-edition" },
-    { name: "Shop by", href: "/shop-by" },
-    { name: "Collections", href: "/collections" },
-    { name: "Bracelets", href: "/bracelets" },
-    { name: "Earrings", href: "/earrings" },
-    { name: "Necklaces", href: "/necklaces" },
-    { name: "Rings", href: "/rings" },
-    { name: "Charms", href: "/charms" },
-    { name: "For him", href: "/for-him" },
+    { 
+      name: "Shop by", 
+      href: "/shop-by",
+      megaMenu: {
+        featureImage: "/images/1 product.jpg",
+        columns: [
+          {
+            title: "Type",
+            links: [
+              { name: "Women's jewelry", href: "/shop-by?filter=Women's jewelry" },
+              { name: "Men's jewelry", href: "/shop-by?filter=Men's jewelry" },
+              { name: "Accessories", href: "/shop-by?filter=Accessories" },
+              { name: "Heart Jewelry", href: "/shop-by?filter=Heart Jewelry" },
+              { name: "Dragonfly Jewelry", href: "/shop-by?filter=Dragonfly Jewelry" }
+            ]
+          },
+          {
+            title: "Material",
+            links: [
+              { name: "Silver Jewelry", href: "/shop-by?filter=Silver Jewelry" },
+              { name: "Gold Jewelry", href: "/shop-by?filter=Gold Jewelry" },
+              { name: "Leather Jewelry", href: "/shop-by?filter=Leather Jewelry" },
+              { name: "Crystal Jewelry", href: "/shop-by?filter=Crystal Jewelry" }
+            ]
+          },
+          {
+            title: "Featured",
+            links: [
+              { name: "Limited Edition", href: "/shop-by?filter=Limited Edition" },
+              { name: "Best Sellers", href: "/shop-by?filter=Best Sellers" },
+              { name: "Special events jewelry", href: "/shop-by?filter=Special events jewelry" },
+              { name: "Everyday Jewelry", href: "/shop-by?filter=Everyday Jewelry" },
+              { name: "UNOde50 Icons", href: "/shop-by?filter=UNOde50 Icons" }
+            ]
+          }
+        ]
+      }
+    },
+    { 
+      name: "Collections", 
+      href: "/collections",
+      megaMenu: {
+        featureTitle: "UNOde50 Collections",
+        featureImage: "/images/1 product.jpg",
+        columns: [
+          {
+            title: "New in",
+            links: [
+              { name: "Arcadia", href: "#", badge: "New in" },
+              { name: "Flutter", href: "/collections?filter=Flutter" },
+              { name: "Core", href: "/collections?filter=Core" },
+              { name: "Gravity", href: "/collections?filter=Gravity" },
+              { name: "Beat", href: "/collections?filter=Beat" },
+              { name: "Roots", href: "/collections?filter=Roots" }
+            ]
+          },
+          {
+            title: "Featured",
+            links: [
+              { name: "Ser Unode50", href: "/collections?filter=Ser Unode50" },
+              { name: "Hazte UNO", href: "/collections?filter=Hazte UNO" }
+            ]
+          },
+          {
+            title: "Always UNO",
+            links: [
+              { name: "Empowerment Collections", href: "/collections?filter=Empowerment Collections" },
+              { name: "Soulcrafted Collections", href: "/collections?filter=Soulcrafted Collections" },
+              { name: "Feelings Collections", href: "/collections?filter=Feelings Collections" }
+            ]
+          }
+        ]
+      }
+    },
+    { 
+      name: "Bracelets", 
+      href: "/bracelets",
+      megaMenu: {
+        featureTitle: "Bracelets",
+        featureImage: "/images/1 product.jpg",
+        columns: [
+          {
+            title: "",
+            links: [
+              { name: "Silver Bracelets", href: "/bracelets?filter=Silver Bracelets" },
+              { name: "Gold Bracelets", href: "/bracelets?filter=Gold Bracelets" },
+              { name: "Leather Bracelets", href: "/bracelets?filter=Leather Bracelets" },
+              { name: "Pearl Bracelets", href: "/bracelets?filter=Pearl Bracelets" },
+              { name: "Cord Bracelets", href: "/bracelets?filter=Cord Bracelets" }
+            ]
+          },
+          {
+            title: "",
+            links: [
+              { name: "Bangle Bracelets", href: "/bracelets?filter=Bangle Bracelets" },
+              { name: "Cuff Bracelets", href: "/bracelets?filter=Cuff Bracelets" },
+              { name: "Link Bracelets", href: "/bracelets?filter=Link Bracelets" },
+              { name: "Beaded Bracelets", href: "/bracelets?filter=Beaded Bracelets" }
+            ]
+          },
+          {
+            title: "",
+            links: [
+              { name: "Bracelets for Men", href: "/bracelets?filter=Bracelets for Men" },
+              { name: "Birthstone Bracelets", href: "/bracelets?filter=Birthstone Bracelets" },
+              { name: "Charm Bracelets", href: "/bracelets?filter=Charm Bracelets" },
+              { name: "Best Selling Bracelets", href: "/bracelets?filter=Best Selling Bracelets" }
+            ]
+          }
+        ]
+      }
+    },
+    { 
+      name: "Earrings", 
+      href: "/earrings",
+      megaMenu: {
+        featureTitle: "Earrings",
+        featureImage: "/images/1 product.jpg",
+        columns: [
+          {
+            title: "",
+            links: [
+              { name: "Silver Earrings", href: "/earrings?filter=Silver Earrings" },
+              { name: "Gold Earrings", href: "/earrings?filter=Gold Earrings" },
+              { name: "Pearl Earrings", href: "/earrings?filter=Pearl Earrings" }
+            ]
+          },
+          {
+            title: "",
+            links: [
+              { name: "Hoop Earrings", href: "/earrings?filter=Hoop Earrings" },
+              { name: "Drop Earrings", href: "/earrings?filter=Drop Earrings" },
+              { name: "Stud Earrings", href: "/earrings?filter=Stud Earrings" },
+              { name: "Single Earrings", href: "/earrings?filter=Single Earrings" }
+            ]
+          },
+          {
+            title: "",
+            links: [
+              { name: "Heart-Shaped Earrings", href: "/earrings?filter=Heart-Shaped Earrings" },
+              { name: "Best selling earrings", href: "/earrings?filter=Best selling earrings" },
+              { name: "Earrings for Special Occasions", href: "/earrings?filter=Earrings for Special Occasions" }
+            ]
+          }
+        ]
+      }
+    },
+    { 
+      name: "Necklaces", 
+      href: "/necklaces",
+      megaMenu: {
+        featureTitle: "Necklaces",
+        featureImage: "/images/1 product.jpg",
+        columns: [
+          {
+            title: "",
+            links: [
+              { name: "Silver Necklaces", href: "/necklaces?filter=Silver Necklaces" },
+              { name: "Gold Necklaces", href: "/necklaces?filter=Gold Necklaces" },
+              { name: "Leather Necklaces", href: "/necklaces?filter=Leather Necklaces" },
+              { name: "Pearl Necklaces", href: "/necklaces?filter=Pearl Necklaces" }
+            ]
+          },
+          {
+            title: "",
+            links: [
+              { name: "Chain Necklaces", href: "/necklaces?filter=Chain Necklaces" },
+              { name: "Multi Strand Necklaces", href: "/necklaces?filter=Multi Strand Necklaces" },
+              { name: "Long Necklaces", href: "/necklaces?filter=Long Necklaces" },
+              { name: "Short Necklaces", href: "/necklaces?filter=Short Necklaces" },
+              { name: "Beaded Necklaces", href: "/necklaces?filter=Beaded Necklaces" }
+            ]
+          },
+          {
+            title: "",
+            links: [
+              { name: "Pendant Necklaces", href: "/necklaces?filter=Pendant Necklaces" },
+              { name: "Heart-Shaped Necklaces", href: "/necklaces?filter=Heart-Shaped Necklaces" },
+              { name: "Charm Necklaces", href: "/necklaces?filter=Charm Necklaces" },
+              { name: "Necklaces for Special Occasions", href: "/necklaces?filter=Necklaces for Special Occasions" },
+              { name: "Best Selling Necklaces", href: "/necklaces?filter=Best Selling Necklaces" }
+            ]
+          }
+        ]
+      }
+    },
+    { 
+      name: "Rings", 
+      href: "/rings",
+      megaMenu: {
+        featureTitle: "Rings",
+        featureImage: "/images/1 product.jpg",
+        columns: [
+          {
+            title: "",
+            links: [
+              { name: "Silver Rings", href: "/rings?filter=Silver Rings" },
+              { name: "Gold Rings", href: "/rings?filter=Gold Rings" },
+              { name: "Crystal Rings", href: "/rings?filter=Crystal Rings" }
+            ]
+          },
+          {
+            title: "",
+            links: [
+              { name: "Minimal Rings", href: "/rings?filter=Minimal Rings" },
+              { name: "Rings for Special Occasions", href: "/rings?filter=Rings for Special Occasions" },
+              { name: "Best Selling Rings", href: "/rings?filter=Best Selling Rings" }
+            ]
+          }
+        ]
+      }
+    },
+    { 
+      name: "Charms", 
+      href: "/charms",
+      megaMenu: {
+        featureTitle: "Charms",
+        featureImage: "/images/1 product.jpg",
+        columns: [
+          {
+            title: "",
+            links: [
+              { name: "Silver Charms", href: "/charms?filter=Silver Charms" },
+              { name: "Gold Charms", href: "/charms?filter=Gold Charms" },
+              { name: "Gemstone Charms", href: "/charms?filter=Gemstone Charms" }
+            ]
+          },
+          {
+            title: "",
+            links: [
+              { name: "Zodiac Charms", href: "/charms?filter=Zodiac Charms" },
+              { name: "Initial Charms", href: "/charms?filter=Initial Charms" },
+              { name: "Hoop Charms", href: "/charms?filter=Hoop Charms" },
+              { name: "Heart-shaped charms", href: "/charms?filter=Heart-shaped charms" }
+            ]
+          }
+        ]
+      }
+    },
+    { 
+      name: "For him", 
+      href: "/for-him",
+      megaMenu: {
+        featureTitle: "For him",
+        featureImage: "/images/1 product.jpg",
+        columns: [
+          {
+            title: "",
+            links: [
+              { name: "Bracelets for men", href: "/for-him?filter=Bracelets for men" },
+              { name: "Silver bracelets for men", href: "/for-him?filter=Silver bracelets for men" },
+              { name: "Leather bracelets for men", href: "/for-him?filter=Leather bracelets for men" },
+              { name: "Chain and Link bracelets", href: "/for-him?filter=Chain and Link bracelets" }
+            ]
+          },
+          {
+            title: "",
+            links: [
+              { name: "Rings for men", href: "/for-him?filter=Rings for men" },
+              { name: "Necklaces for men", href: "/for-him?filter=Necklaces for men" },
+              { name: "Watches", href: "/for-him?filter=Watches" }
+            ]
+          },
+          {
+            title: "",
+            links: [
+              { name: "Keychains", href: "/for-him?filter=Keychains" },
+              { name: "Men's Best Sellers", href: "/for-him?filter=Men's Best Sellers" }
+            ]
+          }
+        ]
+      }
+    },
     { name: "Outlet", href: "/outlet" }
   ];
 
@@ -303,14 +688,32 @@ function getInitialDbState(): DbSchema {
     }
   };
 
+  const limitedEditionSettings: LimitedEditionSettings = {
+    bannerImage: "/images/HEADER_NEW-IN_ARCADIA_desktop.jpg",
+    introTitle: "LIMITED EDITIONS",
+    introText1: "Imagine a collectible object transformed into a piece of jewelry. A memory, a decision, a work of art.",
+    introText2: "Each design is produced in a limited edition of 50 units, numbered, handcrafted in Spain, and selectively distributed around the world."
+  };
+
+  const admins: AdminUser[] = [
+    {
+      id: "1",
+      email: "cielorashop@gmail.com",
+      role: "owner"
+    }
+  ];
+
   return {
     products: formattedProducts,
     stores,
     banners,
+    homeCards,
     labels,
     orders,
     navbarTabs,
-    settings
+    settings,
+    limitedEditionSettings,
+    admins
   };
 }
 
@@ -331,7 +734,28 @@ export function getDb(): DbSchema {
 
   try {
     const data = fs.readFileSync(DB_PATH, "utf8");
-    return JSON.parse(data) as DbSchema;
+    const parsed = JSON.parse(data) as DbSchema;
+    if (!parsed.homeCards) {
+      const initialState = getInitialDbState();
+      parsed.homeCards = initialState.homeCards;
+    }
+    // Backward compat for linkedProductIds in banners
+    if (parsed.banners && parsed.banners.length > 0 && parsed.banners[0].linkedProductIds === undefined) {
+      const initialState = getInitialDbState();
+      parsed.banners = parsed.banners.map(b => {
+        const initialBanner = initialState.banners.find(ib => ib.id === b.id);
+        if (initialBanner && initialBanner.linkedProductIds) {
+          return { ...b, linkedProductsTitle: initialBanner.linkedProductsTitle, linkedProductIds: initialBanner.linkedProductIds };
+        }
+        return b;
+      });
+    }
+    // Backward compat for admins
+    if (!parsed.admins) {
+      const initialState = getInitialDbState();
+      parsed.admins = initialState.admins;
+    }
+    return parsed;
   } catch (error) {
     console.error("Error reading database file, resetting to initial state", error);
     const initialState = getInitialDbState();

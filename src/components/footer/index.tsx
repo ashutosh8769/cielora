@@ -1,8 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Globe, MessageCircle, Accessibility } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  if (pathname && pathname.startsWith('/admin')) {
+    return null;
+  }
+
   return (
     <footer className="bg-[#211d1d] text-white w-full flex flex-col relative overflow-hidden">
       {/* Main Content */}

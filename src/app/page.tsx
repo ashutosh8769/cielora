@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import ProductRow from "@/components/ProductRow";
 import { getDb } from "@/lib/db";
 
@@ -6,6 +7,7 @@ export default async function Home() {
   const db = getDb();
   const products = db.products;
   const banners = db.banners;
+  const homeCards = db.homeCards || [];
   
   const getBanner = (id: string) => banners.find(b => b.id === id);
   
@@ -15,11 +17,12 @@ export default async function Home() {
   const flutterBanner = getBanner("flutter");
   const luminisBanner = getBanner("luminis");
   
-  // Filter products by collection names for rows
-  const silverProducts = products.filter(p => p.collectionName === "Silver Collection");
-  const arcadiaProducts = products.filter(p => p.collectionName === "Arcadia");
-  const classicProducts = products.filter(p => p.collectionName === "Classic");
-
+  const getProductsForBanner = (banner: any) => {
+    if (!banner?.linkedProductIds) return [];
+    return banner.linkedProductIds
+      .map((id: string) => products.find((p: any) => p.id === id))
+      .filter(Boolean);
+  };
   return (
     <main className="flex min-h-screen flex-col bg-white">
       {/* Top Hero Section */}
@@ -43,9 +46,9 @@ export default async function Home() {
         </section>
       )}
 
-      {/* First Product Row */}
-      {silverProducts.length > 0 && (
-        <ProductRow products={silverProducts} collectionName="Silver Collection" className="pt-8" />
+      {/* Top Hero Product Row */}
+      {topHero && topHero.linkedProductIds && getProductsForBanner(topHero).length > 0 && (
+        <ProductRow products={getProductsForBanner(topHero)} collectionName={topHero.linkedProductsTitle || ""} className="py-5" />
       )}
 
       {/* Arcadia Hero Banner */}
@@ -71,8 +74,8 @@ export default async function Home() {
       )}
 
       {/* Arcadia Product Row */}
-      {arcadiaBanner && arcadiaBanner.visible && arcadiaProducts.length > 0 && (
-        <ProductRow products={arcadiaProducts} collectionName="Arcadia" className="pt-8" />
+      {arcadiaBanner && arcadiaBanner.visible && arcadiaBanner.linkedProductIds && getProductsForBanner(arcadiaBanner).length > 0 && (
+        <ProductRow products={getProductsForBanner(arcadiaBanner)} collectionName={arcadiaBanner.linkedProductsTitle || ""} className="py-5" />
       )}
 
       {/* Mid Banner */}
@@ -100,36 +103,20 @@ export default async function Home() {
         {/* Unique Pieces Row */}
         <section className="py-6 px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="flex flex-col cursor-pointer group p-2">
-              <div className="aspect-[3/4] bg-gray-100 group-hover:bg-gray-200 transition-colors w-full overflow-hidden relative">
-                <img src="/images/CATEGORIAS_1.webp" alt="BRACELETS" className="absolute inset-0 w-full h-full object-cover" />
-              </div>
-              <p className="text-[20px] font-semibold pt-4 text-gray-900">BRACELETS</p>
-            </div>
-            <div className="flex flex-col cursor-pointer group p-2">
-              <div className="aspect-[3/4] bg-stone-200 group-hover:bg-stone-300 transition-colors w-full overflow-hidden relative">
-                <img src="/images/CATEGORIAS_2.webp" alt="RINGS" className="absolute inset-0 w-full h-full object-cover" />
-              </div>
-              <p className="text-[20px] font-semibold pt-4 text-gray-900">RINGS</p>
-            </div>
-            <div className="flex flex-col cursor-pointer group p-2">
-              <div className="aspect-[3/4] bg-gray-100 group-hover:bg-gray-200 transition-colors w-full overflow-hidden relative">
-                <img src="/images/CATEGORIAS_3.webp" alt="NECKLACES" className="absolute inset-0 w-full h-full object-cover" />
-              </div>
-              <p className="text-[20px] font-semibold pt-4 text-gray-900">NECKLACES</p>
-            </div>
-            <div className="flex flex-col cursor-pointer group p-2">
-              <div className="aspect-[3/4] bg-stone-200 group-hover:bg-stone-300 transition-colors w-full overflow-hidden relative">
-                <img src="/images/CATEGORIAS_4.webp" alt="EARRINGS" className="absolute inset-0 w-full h-full object-cover" />
-              </div>
-              <p className="text-[20px] font-semibold pt-4 text-gray-900">EARRINGS</p>
-            </div>
+            {homeCards.map((card, index) => (
+              <Link key={card.id} href={card.link} className="flex flex-col cursor-pointer group p-2">
+                <div className={`aspect-[3/4] ${index % 2 === 0 ? "bg-gray-100 group-hover:bg-gray-200" : "bg-stone-200 group-hover:bg-stone-300"} transition-colors w-full overflow-hidden relative`}>
+                  <img src={card.image} alt={card.title} className="absolute inset-0 w-full h-full object-cover" />
+                </div>
+                <p className="text-[20px] font-semibold pt-4 text-gray-900">{card.title}</p>
+              </Link>
+            ))}
           </div>
         </section>
 
         {/* Full Face Model Banner */}
         {flutterBanner && flutterBanner.visible && (
-          <section className="relative w-full h-screen bg-stone-800 flex items-center overflow-hidden my-8">
+          <section className="relative w-full h-screen bg-stone-800 flex items-center overflow-hidden mt-8">
             <div className="absolute inset-0 z-0">
               <img
                 src={flutterBanner.image}
@@ -145,14 +132,14 @@ export default async function Home() {
           </section>
         )}
 
-        {/* Last Product Row */}
-        {classicProducts.length > 0 && (
-          <ProductRow products={classicProducts} collectionName="Classic" className="py-8" />
+        {/* Flutter Product Row */}
+        {flutterBanner && flutterBanner.visible && flutterBanner.linkedProductIds && getProductsForBanner(flutterBanner).length > 0 && (
+          <ProductRow products={getProductsForBanner(flutterBanner)} collectionName={flutterBanner.linkedProductsTitle || ""} className="py-5" />
         )}
 
         {/* Luminis Edition */}
         {luminisBanner && luminisBanner.visible && (
-          <section className="relative w-full h-[60vh] md:h-[700px] bg-stone-900 flex items-center overflow-hidden mt-8">
+          <section className="relative w-full h-[60vh] md:h-[700px] bg-stone-900 flex items-center overflow-hidden">
             <div className="absolute inset-0 z-0">
               <img
                 src={luminisBanner.image}

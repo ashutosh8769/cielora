@@ -129,15 +129,12 @@ function OutletContent() {
     { name: "Turquoise", count: 0 },
     { name: "Camel", count: 0 }
   ];
-  const topFilters = [
-    "Outlet Bracelets", "Outlet Rings", "Outlet Earrings", "Outlet Necklaces", "Outlet Charms"
-  ];
+  const { products: dbProducts, navbarTabs, loading } = useProducts();
+  const topFilters = navbarTabs.find(t => t.href === '/outlet')?.groupFilters || [];
 
   const bottomFilters = [
     "CATEGORY", "PRICE", "SIZE", "PLATING", "COMPONENT", "LEATHER", "COLOR"
   ];
-
-  const { products: dbProducts, loading } = useProducts();
 
   // Show products under £150 or with a label as "Outlet" items
   const categoryProducts = dbProducts.filter(p => p.priceValue < 150 || p.label?.toLowerCase().includes("outlet") || p.bottomLabel?.toLowerCase().includes("free"));
