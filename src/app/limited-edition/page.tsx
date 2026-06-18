@@ -2,8 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getDb } from "@/lib/db";
 
-export default function LimitedEditionPage() {
-  const db = getDb();
+export default async function LimitedEditionPage() {
+  const db = await getDb();
   const settings = db.limitedEditionSettings;
   const limitedProducts = db.products.filter(p => p.isLimitedEdition);
 

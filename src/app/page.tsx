@@ -4,7 +4,7 @@ import ProductRow from "@/components/ProductRow";
 import { getDb } from "@/lib/db";
 
 export default async function Home() {
-  const db = getDb();
+  const db = await getDb();
   const products = db.products;
   const banners = db.banners;
   const homeCards = db.homeCards || [];

@@ -16,7 +16,7 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async signIn({ user, account, profile }) {
       try {
-        const db = getDb();
+        const db = await getDb();
         const allowedEmails = db.admins.map((a) => a.email);
         
         if (user.email && allowedEmails.includes(user.email)) {

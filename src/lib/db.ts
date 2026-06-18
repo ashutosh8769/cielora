@@ -1,5 +1,4 @@
-import fs from "fs";
-import path from "path";
+import clientPromise from "./mongodb";
 import { products as initialProducts } from "../data/products";
 
 // Define TypeScript interfaces for our DB models
@@ -163,7 +162,7 @@ export interface DbSchema {
   admins: AdminUser[];
 }
 
-const DB_PATH = path.join(process.cwd(), "src", "data", "db.json");
+
 
 // Default initial state
 function getInitialDbState(): DbSchema {
@@ -718,23 +717,28 @@ function getInitialDbState(): DbSchema {
 }
 
 // Read and write operations
-export function getDb(): DbSchema {
-  // Check if directory exists
-  const dir = path.dirname(DB_PATH);
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
-
-  // Check if file exists, if not initialize it
-  if (!fs.existsSync(DB_PATH)) {
-    const initialState = getInitialDbState();
-    fs.writeFileSync(DB_PATH, JSON.stringify(initialState, null, 2), "utf8");
-    return initialState;
+export async function getDb(): Promise<DbSchema> {
+  if (!process.env.MONGODB_URI) {
+    console.warn("MONGODB_URI is missing, falling back to initial state.");
+    return getInitialDbState();
   }
 
   try {
-    const data = fs.readFileSync(DB_PATH, "utf8");
-    const parsed = JSON.parse(data) as DbSchema;
+    const client = await clientPromise;
+    const db = client.db("cielora");
+    const collection = db.collection("storeData");
+    
+    const data = await collection.findOne({ _id: "main_db" as any });
+    
+    if (!data) {
+      const initialState = getInitialDbState();
+      await collection.insertOne({ _id: "main_db" as any, ...initialState });
+      return initialState;
+    }
+    
+    const { _id, ...parsedData } = data;
+    const parsed = parsedData as unknown as DbSchema;
+
     if (!parsed.homeCards) {
       const initialState = getInitialDbState();
       parsed.homeCards = initialState.homeCards;
@@ -757,13 +761,24 @@ export function getDb(): DbSchema {
     }
     return parsed;
   } catch (error) {
-    console.error("Error reading database file, resetting to initial state", error);
-    const initialState = getInitialDbState();
-    fs.writeFileSync(DB_PATH, JSON.stringify(initialState, null, 2), "utf8");
-    return initialState;
+    console.error("Error reading database from MongoDB, resetting to initial state", error);
+    return getInitialDbState();
   }
 }
 
-export function saveDb(data: DbSchema): void {
-  fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2), "utf8");
+export async function saveDb(data: DbSchema): Promise<void> {
+  if (!process.env.MONGODB_URI) {
+    console.error("Cannot save: MONGODB_URI is missing.");
+    return;
+  }
+
+  const client = await clientPromise;
+  const db = client.db("cielora");
+  const collection = db.collection("storeData");
+  
+  await collection.updateOne(
+    { _id: "main_db" as any },
+    { $set: data },
+    { upsert: true }
+  );
 }

@@ -11,7 +11,7 @@ import { notFound } from "next/navigation";
 
 export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;
-  const db = getDb();
+  const db = await getDb();
   const product = db.products.find(p => String(p.id) === resolvedParams.id);
   const settings = db.settings;
   
