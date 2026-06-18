@@ -402,6 +402,34 @@ export default function CollectionsPage() {
         </div>
       </div>
 
+
+        {/* Active Filters */}
+        {Object.entries(selectedFilters).some(([_, vals]) => vals.length > 0) && (
+          <div className="flex flex-wrap gap-2 mt-4 items-center">
+            <span className="text-[12px] text-gray-500 mr-2">Applied Filters:</span>
+            {Object.entries(selectedFilters).map(([category, values]) => 
+              values.map(val => (
+                <button
+                  key={`${category}-${val}`}
+                  onClick={() => toggleFilter(category as keyof FilterState, val)}
+                  className="flex items-center gap-1 border border-gray-300 px-2 py-1 text-[11px] text-gray-700 hover:bg-gray-100 rounded-sm transition-colors"
+                >
+                  {val}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                  </svg>
+                </button>
+              ))
+            )}
+            <button
+              onClick={() => setSelectedFilters({ CATEGORY: [], PRICE: [], SIZE: [], PLATING: [], COMPONENT: [], LEATHER: [], COLOR: [] })}
+              className="text-[11px] text-gray-500 hover:text-black underline ml-2 transition-colors"
+            >
+              Clear all
+            </button>
+          </div>
+        )}
+
       {/* Product Grid */}
       <div className="w-full pb-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-1 gap-y-10 mt-6 px-1">

@@ -49,6 +49,11 @@ export default function Navbar() {
       });
   }, []);
 
+  useEffect(() => {
+    setIsSearchOpen(false);
+    setIsOpen(false);
+  }, [pathname]);
+
   if (pathname && pathname.startsWith('/admin')) {
     return null;
   }
