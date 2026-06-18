@@ -2562,8 +2562,50 @@
                 "href": "/bracelets?filter=Pearl Bracelets"
               },
               {
-                "name": "Thread Bracelets",
-                "href": "/bracelets?filter=Thread Bracelets"
+                "name": "Cord Bracelets",
+                "href": "/bracelets?filter=Cord Bracelets"
+              }
+            ]
+          },
+          {
+            "title": "",
+            "links": [
+              {
+                "name": "Bangle Bracelets",
+                "href": "/bracelets?filter=Bangle Bracelets"
+              },
+              {
+                "name": "Cuff Bracelets",
+                "href": "/bracelets?filter=Cuff Bracelets"
+              },
+              {
+                "name": "Link Bracelets",
+                "href": "/bracelets?filter=Link Bracelets"
+              },
+              {
+                "name": "Beaded Bracelets",
+                "href": "/bracelets?filter=Beaded Bracelets"
+              }
+            ]
+          },
+          {
+            "title": "",
+            "links": [
+              {
+                "name": "Bracelets for Men",
+                "href": "/bracelets?filter=Bracelets for Men"
+              },
+              {
+                "name": "Birthstone Bracelets",
+                "href": "/bracelets?filter=Birthstone Bracelets"
+              },
+              {
+                "name": "Charm Bracelets",
+                "href": "/bracelets?filter=Charm Bracelets"
+              },
+              {
+                "name": "Best Selling Bracelets",
+                "href": "/bracelets?filter=Best Selling Bracelets"
               }
             ]
           }
@@ -2604,12 +2646,46 @@
                 "href": "/earrings?filter=Gold Earrings"
               },
               {
+                "name": "Pearl Earrings",
+                "href": "/earrings?filter=Pearl Earrings"
+              }
+            ]
+          },
+          {
+            "title": "",
+            "links": [
+              {
                 "name": "Hoop Earrings",
                 "href": "/earrings?filter=Hoop Earrings"
               },
               {
-                "name": "Long Earrings",
-                "href": "/earrings?filter=Long Earrings"
+                "name": "Drop Earrings",
+                "href": "/earrings?filter=Drop Earrings"
+              },
+              {
+                "name": "Stud Earrings",
+                "href": "/earrings?filter=Stud Earrings"
+              },
+              {
+                "name": "Single Earrings",
+                "href": "/earrings?filter=Single Earrings"
+              }
+            ]
+          },
+          {
+            "title": "",
+            "links": [
+              {
+                "name": "Heart-Shaped Earrings",
+                "href": "/earrings?filter=Heart-Shaped Earrings"
+              },
+              {
+                "name": "Best selling earrings",
+                "href": "/earrings?filter=Best selling earrings"
+              },
+              {
+                "name": "Earrings for Special Occasions",
+                "href": "/earrings?filter=Earrings for Special Occasions"
               }
             ]
           }
@@ -2646,7 +2722,84 @@
         "Charm Necklaces",
         "Necklaces for Special Occasions",
         "Best Selling Necklaces"
-      ]
+      ],
+      "megaMenu": {
+        "featureTitle": "Necklaces",
+        "featureImage": "/images/1 product.jpg",
+        "columns": [
+          {
+            "title": "",
+            "links": [
+              {
+                "name": "Silver Necklaces",
+                "href": "/necklaces?filter=Silver Necklaces"
+              },
+              {
+                "name": "Gold Necklaces",
+                "href": "/necklaces?filter=Gold Necklaces"
+              },
+              {
+                "name": "Leather Necklaces",
+                "href": "/necklaces?filter=Leather Necklaces"
+              },
+              {
+                "name": "Pearl Necklaces",
+                "href": "/necklaces?filter=Pearl Necklaces"
+              }
+            ]
+          },
+          {
+            "title": "",
+            "links": [
+              {
+                "name": "Chain Necklaces",
+                "href": "/necklaces?filter=Chain Necklaces"
+              },
+              {
+                "name": "Multi Strand Necklaces",
+                "href": "/necklaces?filter=Multi Strand Necklaces"
+              },
+              {
+                "name": "Long Necklaces",
+                "href": "/necklaces?filter=Long Necklaces"
+              },
+              {
+                "name": "Short Necklaces",
+                "href": "/necklaces?filter=Short Necklaces"
+              },
+              {
+                "name": "Beaded Necklaces",
+                "href": "/necklaces?filter=Beaded Necklaces"
+              }
+            ]
+          },
+          {
+            "title": "",
+            "links": [
+              {
+                "name": "Pendant Necklaces",
+                "href": "/necklaces?filter=Pendant Necklaces"
+              },
+              {
+                "name": "Heart-Shaped Necklaces",
+                "href": "/necklaces?filter=Heart-Shaped Necklaces"
+              },
+              {
+                "name": "Charm Necklaces",
+                "href": "/necklaces?filter=Charm Necklaces"
+              },
+              {
+                "name": "Necklaces for Special Occasions",
+                "href": "/necklaces?filter=Necklaces for Special Occasions"
+              },
+              {
+                "name": "Best Selling Necklaces",
+                "href": "/necklaces?filter=Best Selling Necklaces"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "name": "Rings",
@@ -2658,7 +2811,47 @@
         "Minimal Rings",
         "Rings for Special Occasions",
         "Best Selling Rings"
-      ]
+      ],
+      "megaMenu": {
+        "featureTitle": "Rings",
+        "featureImage": "/images/1 product.jpg",
+        "columns": [
+          {
+            "title": "",
+            "links": [
+              {
+                "name": "Silver Rings",
+                "href": "/rings?filter=Silver Rings"
+              },
+              {
+                "name": "Gold Rings",
+                "href": "/rings?filter=Gold Rings"
+              },
+              {
+                "name": "Crystal Rings",
+                "href": "/rings?filter=Crystal Rings"
+              }
+            ]
+          },
+          {
+            "title": "",
+            "links": [
+              {
+                "name": "Minimal Rings",
+                "href": "/rings?filter=Minimal Rings"
+              },
+              {
+                "name": "Rings for Special Occasions",
+                "href": "/rings?filter=Rings for Special Occasions"
+              },
+              {
+                "name": "Best Selling Rings",
+                "href": "/rings?filter=Best Selling Rings"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "name": "Charms",
@@ -2671,7 +2864,51 @@
         "Initial Charms",
         "Hoop Charms",
         "Heart-shaped charms"
-      ]
+      ],
+      "megaMenu": {
+        "featureTitle": "Charms",
+        "featureImage": "/images/1 product.jpg",
+        "columns": [
+          {
+            "title": "",
+            "links": [
+              {
+                "name": "Silver Charms",
+                "href": "/charms?filter=Silver Charms"
+              },
+              {
+                "name": "Gold Charms",
+                "href": "/charms?filter=Gold Charms"
+              },
+              {
+                "name": "Gemstone Charms",
+                "href": "/charms?filter=Gemstone Charms"
+              }
+            ]
+          },
+          {
+            "title": "",
+            "links": [
+              {
+                "name": "Zodiac Charms",
+                "href": "/charms?filter=Zodiac Charms"
+              },
+              {
+                "name": "Initial Charms",
+                "href": "/charms?filter=Initial Charms"
+              },
+              {
+                "name": "Hoop Charms",
+                "href": "/charms?filter=Hoop Charms"
+              },
+              {
+                "name": "Heart-shaped charms",
+                "href": "/charms?filter=Heart-shaped charms"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "name": "For him",
@@ -2686,7 +2923,64 @@
         "Watches",
         "Keychains",
         "Men's Best Sellers"
-      ]
+      ],
+      "megaMenu": {
+        "featureTitle": "For him",
+        "featureImage": "/images/1 product.jpg",
+        "columns": [
+          {
+            "title": "",
+            "links": [
+              {
+                "name": "Bracelets for men",
+                "href": "/for-him?filter=Bracelets for men"
+              },
+              {
+                "name": "Silver bracelets for men",
+                "href": "/for-him?filter=Silver bracelets for men"
+              },
+              {
+                "name": "Leather bracelets for men",
+                "href": "/for-him?filter=Leather bracelets for men"
+              },
+              {
+                "name": "Chain and Link bracelets",
+                "href": "/for-him?filter=Chain and Link bracelets"
+              }
+            ]
+          },
+          {
+            "title": "",
+            "links": [
+              {
+                "name": "Rings for men",
+                "href": "/for-him?filter=Rings for men"
+              },
+              {
+                "name": "Necklaces for men",
+                "href": "/for-him?filter=Necklaces for men"
+              },
+              {
+                "name": "Watches",
+                "href": "/for-him?filter=Watches"
+              }
+            ]
+          },
+          {
+            "title": "",
+            "links": [
+              {
+                "name": "Keychains",
+                "href": "/for-him?filter=Keychains"
+              },
+              {
+                "name": "Men's Best Sellers",
+                "href": "/for-him?filter=Men's Best Sellers"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "name": "Outlet",
