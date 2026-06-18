@@ -1,6 +1,12 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
+import { v2 as cloudinary } from "cloudinary";
+
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 export async function POST(request: Request) {
   try {
@@ -12,27 +18,20 @@ export async function POST(request: Request) {
     }
 
     const buffer = Buffer.from(await file.arrayBuffer());
-    
-    // Create a safe, unique filename
-    const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
-    const originalName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, "_");
-    const filename = `${uniqueSuffix}-${originalName}`;
-    
-    // Directory path: public/images
-    const uploadDir = path.join(process.cwd(), "public", "images");
-    
-    // Ensure the directory exists
-    if (!fs.existsSync(uploadDir)) {
-      fs.mkdirSync(uploadDir, { recursive: true });
-    }
 
-    const filePath = path.join(uploadDir, filename);
+    // Upload to Cloudinary via stream
+    const uploadResult = await new Promise((resolve, reject) => {
+      const uploadStream = cloudinary.uploader.upload_stream(
+        { folder: "cielora" },
+        (error, result) => {
+          if (error) reject(error);
+          else resolve(result);
+        }
+      );
+      uploadStream.end(buffer);
+    });
 
-    // Write file to filesystem
-    fs.writeFileSync(filePath, buffer);
-
-    // Return the relative URL path to be used by the frontend
-    const fileUrl = `/images/${filename}`;
+    const fileUrl = (uploadResult as any).secure_url;
 
     return NextResponse.json({ success: true, url: fileUrl });
   } catch (error: any) {
