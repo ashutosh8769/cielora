@@ -229,7 +229,7 @@ export default function CollectionsPage() {
 
         {/* Top Filter Buttons */}
         <div className="flex flex-wrap gap-[6px] mb-0">
-          {topFilters.map((filter, index) => (
+          {topFilters.map((filter: string, index: number) => (
             <button
               key={index}
               onClick={() => setSelectedTopFilter(selectedTopFilter === filter ? null : filter)}
