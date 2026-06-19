@@ -83,6 +83,8 @@ export default function AdminPage() {
   const [editingNavbarTabFull, setEditingNavbarTabFull] = useState<NavbarTab | null>(null);
   const [isAddingAdmin, setIsAddingAdmin] = useState(false);
   const [newAdminEmail, setNewAdminEmail] = useState("");
+  const [productToDelete, setProductToDelete] = useState<Product | null>(null);
+  const [isClosingDeleteModal, setIsClosingDeleteModal] = useState(false);
 
   const { data: session, status } = useSession();
 
@@ -266,12 +268,23 @@ export default function AdminPage() {
     });
   };
 
-  const deleteProduct = (id: string) => {
-    if (!db) return;
-    if (confirm("Are you sure you want to delete this product?")) {
-      const updated = db.products.filter((p) => p.id !== id);
+  const confirmDeleteProduct = () => {
+    if (!db || !productToDelete) return;
+    setIsClosingDeleteModal(true);
+    setTimeout(() => {
+      const updated = db.products.filter((p) => p.id !== productToDelete.id);
       saveDatabase({ ...db, products: updated });
-    }
+      setProductToDelete(null);
+      setIsClosingDeleteModal(false);
+    }, 300);
+  };
+
+  const cancelDeleteProduct = () => {
+    setIsClosingDeleteModal(true);
+    setTimeout(() => {
+      setProductToDelete(null);
+      setIsClosingDeleteModal(false);
+    }, 300);
   };
 
   const startAddProduct = () => {
@@ -810,7 +823,7 @@ export default function AdminPage() {
                               Edit
                             </button>
                             <button
-                              onClick={() => deleteProduct(prod.id)}
+                              onClick={() => setProductToDelete(prod)}
                               className="border border-red-200 hover:border-red-600 text-red-600 text-[11px] font-semibold uppercase tracking-wider px-3 py-1 rounded transition-colors"
                             >
                               Delete
@@ -2549,6 +2562,35 @@ export default function AdminPage() {
           </div>
         )}
       </main>
+
+      {/* Delete Product Confirmation Modal */}
+      {productToDelete && (
+        <div className={`fixed inset-0 bg-black/50 z-[105] flex items-start justify-center px-4 transition-opacity duration-300 ${isClosingDeleteModal ? "opacity-0" : "opacity-100"}`}>
+          <div className={`bg-[#fffbf7] w-full max-w-[500px] shadow-2xl flex flex-col ${isClosingDeleteModal ? "animate-slideUp" : "animate-slideDown"}`}>
+            {/* Header */}
+            <div className="flex items-center justify-between p-4 border-b border-gray-200">
+              <h3 className="text-[16px] font-medium text-gray-900">Remove Product?</h3>
+              <button onClick={cancelDeleteProduct} className="text-gray-500 hover:text-black transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              </button>
+            </div>
+            {/* Body */}
+            <div className="p-4 py-6 border-b border-gray-200">
+              <p className="text-[14px] text-gray-800 mb-1">Are you sure you want to remove the following product from the store?</p>
+              <p className="text-[14px] text-gray-600">{productToDelete.title}</p>
+            </div>
+            {/* Footer */}
+            <div className="p-4 flex justify-end gap-4">
+              <button onClick={cancelDeleteProduct} className="w-[120px] py-2 border border-black text-gray-800 text-[14px] font-medium hover:bg-black hover:text-white transition-colors bg-[#fffbf7] flex justify-center items-center">
+                Cancel
+              </button>
+              <button onClick={confirmDeleteProduct} className="w-[120px] py-2 bg-[#221f1f] text-white text-[14px] font-medium hover:bg-[#fffbf7] hover:text-black border border-[#221f1f] hover:border-black transition-colors flex justify-center items-center">
+                Yes
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
