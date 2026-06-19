@@ -6,13 +6,22 @@ import { useSearchParams } from 'next/navigation';
 import ProductCard from '@/components/ProductCard';
 import { useProducts } from '@/hooks/useProducts';
 
-export default function CollectionsPage() {
+function CollectionsContent() {
   const [isSortOpen, setIsSortOpen] = useState(false);
   const [sortBy, setSortBy] = useState("NEW IN");
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
   const [selectedTopFilter, setSelectedTopFilter] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(16);
   
+  const searchParams = useSearchParams();
+  const filterParam = searchParams.get('filter');
+
+  useEffect(() => {
+    if (filterParam) {
+      setSelectedTopFilter(filterParam);
+    }
+  }, [filterParam]);
+
   type FilterState = {
     CATEGORY: string[];
     PRICE: string[];
@@ -465,5 +474,13 @@ export default function CollectionsPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function CollectionsPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-white"></div>}>
+      <CollectionsContent />
+    </Suspense>
   );
 }
