@@ -2150,7 +2150,7 @@ export default function AdminPage() {
                               </div>
                               <div className="flex gap-2">
                                 <button onClick={() => editProduct(prod)} className="border px-3 py-1 text-[11px] font-bold uppercase rounded hover:border-black">Edit</button>
-                                <button onClick={() => deleteProduct(prod.id)} className="border border-red-200 text-red-600 px-3 py-1 text-[11px] font-bold uppercase rounded hover:border-red-600">Delete</button>
+                                <button onClick={() => setProductToDelete(prod)} className="border border-red-200 text-red-600 px-3 py-1 text-[11px] font-bold uppercase rounded hover:border-red-600">Delete</button>
                               </div>
                             </div>
                           ))}

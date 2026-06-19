@@ -1,8 +1,4 @@
 import { MongoClient } from "mongodb";
-import dns from "dns";
-
-// Bypass local ISP blocks for MongoDB SRV lookups
-dns.setServers(['8.8.8.8', '8.8.4.4']);
 
 if (!process.env.MONGODB_URI) {
   throw new Error('Invalid/Missing environment variable: "MONGODB_URI"');
