@@ -22,8 +22,10 @@ export default function Navbar() {
         document.cookie = "googtrans=/en/es; path=/";
         document.cookie = "googtrans=/en/es; domain=" + window.location.hostname + "; path=/";
       } else {
+        const domain = window.location.hostname;
         document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=" + window.location.hostname + "; path=/;";
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=" + domain + "; path=/;";
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=." + domain + "; path=/;";
       }
       window.location.reload();
     }
