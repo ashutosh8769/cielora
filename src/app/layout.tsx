@@ -21,6 +21,9 @@ const styleScript = Style_Script({
 export const metadata: Metadata = {
   title: "Cielora | Jewelry E-commerce",
   description: "Modern jewelry e-commerce landing page",
+  icons: {
+    icon: "/images/fevicon.png",
+  },
 };
 
 import Navbar from "@/components/navbar";

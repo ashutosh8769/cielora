@@ -75,12 +75,12 @@ export default function Footer() {
         <div className="w-full max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 pt-4 pb-16">
           {/* Column 1 */}
           <div className="flex flex-col space-y-4">
-            <h4 className="text-[13px] font-bold tracking-wider text-white border-b border-white pb-3 mb-1 uppercase">UNODE50</h4>
-            <Link href="#" className="text-[13px] text-gray-200 hover:text-white transition-colors">Bracelets</Link>
-            <Link href="#" className="text-[13px] text-gray-200 hover:text-white transition-colors">Necklaces</Link>
-            <Link href="#" className="text-[13px] text-gray-200 hover:text-white transition-colors">Earrings</Link>
-            <Link href="#" className="text-[13px] text-gray-200 hover:text-white transition-colors">Rings</Link>
-            <Link href="#" className="text-[13px] text-gray-200 hover:text-white transition-colors">Women's jewelry</Link>
+            <h4 className="text-[13px] font-bold tracking-wider text-white border-b border-white pb-3 mb-1 uppercase">CIELORA</h4>
+            <Link href="/bracelets" className="text-[13px] text-gray-200 hover:text-white transition-colors">Bracelets</Link>
+            <Link href="/necklaces" className="text-[13px] text-gray-200 hover:text-white transition-colors">Necklaces</Link>
+            <Link href="/earrings" className="text-[13px] text-gray-200 hover:text-white transition-colors">Earrings</Link>
+            <Link href="/rings" className="text-[13px] text-gray-200 hover:text-white transition-colors">Rings</Link>
+            <Link href="/shop-by?filter=Women's jewelry" className="text-[13px] text-gray-200 hover:text-white transition-colors">Women's jewelry</Link>
             <Link href="#" className="text-[13px] text-gray-200 hover:text-white transition-colors">Gift Guide</Link>
             <Link href="#" className="text-[13px] text-gray-200 hover:text-white transition-colors">Blog</Link>
           </div>
@@ -89,7 +89,7 @@ export default function Footer() {
           <div className="flex flex-col space-y-4">
             <h4 className="text-[13px] font-bold tracking-wider text-white border-b border-white pb-3 mb-1 uppercase">CONTACT US</h4>
             <Link href="#" className="text-[13px] text-gray-200 hover:text-white transition-colors">Join MUNDO UNO</Link>
-            <Link href="#" className="text-[13px] text-gray-200 hover:text-white transition-colors">Contact us</Link>
+            <Link href="/store" className="text-[13px] text-gray-200 hover:text-white transition-colors">Contact us</Link>
             <Link href="#" className="text-[13px] text-gray-200 hover:text-white transition-colors">Store locator</Link>
             <Link href="#" className="text-[13px] text-gray-200 hover:text-white transition-colors">Distribution</Link>
             <Link href="#" className="text-[13px] text-gray-200 hover:text-white transition-colors">Legal notice</Link>

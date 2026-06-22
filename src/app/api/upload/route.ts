@@ -22,7 +22,7 @@ export async function POST(request: Request) {
     // Upload to Cloudinary via stream
     const uploadResult = await new Promise((resolve, reject) => {
       const uploadStream = cloudinary.uploader.upload_stream(
-        { folder: "cielora" },
+        { folder: "cielora", resource_type: "auto" },
         (error, result) => {
           if (error) reject(error);
           else resolve(result);
