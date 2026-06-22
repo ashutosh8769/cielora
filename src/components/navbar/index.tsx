@@ -16,6 +16,19 @@ export default function Navbar() {
   const { isCartOpen, openCart, closeCart, cartItems } = useCart();
   const { wishlistItems } = useWishlist();
 
+  const changeLanguage = (lang: string) => {
+    if (typeof window !== "undefined") {
+      if (lang === "es") {
+        document.cookie = "googtrans=/en/es; path=/";
+        document.cookie = "googtrans=/en/es; domain=" + window.location.hostname + "; path=/";
+      } else {
+        document.cookie = "googtrans=/en/en; path=/";
+        document.cookie = "googtrans=/en/en; domain=" + window.location.hostname + "; path=/";
+      }
+      window.location.reload();
+    }
+  };
+
   const cartItemsCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
   const wishlistItemsCount = wishlistItems.length;
 
@@ -179,6 +192,29 @@ export default function Navbar() {
                 </span>
               )}
             </button>
+
+            {/* Language */}
+            <div className="relative group cursor-pointer">
+              <div className="hover:text-[#ac2505] transition-colors flex items-center" aria-label="Language" title="Language">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="m5 8 6 6" />
+                  <path d="m4 14 6-6 2-3" />
+                  <path d="M2 5h12" />
+                  <path d="M7 2h1" />
+                  <path d="m22 22-5-10-5 10" />
+                  <path d="M14 18h6" />
+                </svg>
+              </div>
+              
+              <div className="absolute right-[-10px] top-[100%] pt-5 w-32 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="bg-white shadow-md border border-gray-100 overflow-hidden">
+                  <div className="flex flex-col text-[14px] text-gray-700 font-medium">
+                    <div onClick={() => changeLanguage('en')} className="px-4 py-3 hover:bg-gray-50 hover:text-[#ac2505] transition-colors text-center border-b border-gray-50">English</div>
+                    <div onClick={() => changeLanguage('es')} className="px-4 py-3 hover:bg-gray-50 hover:text-[#ac2505] transition-colors text-center">Spanish</div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             {/* Mobile menu button */}
             <button onClick={() => setIsOpen(!isOpen)} aria-label="Menu" title="Menu" className="lg:hidden text-gray-700 hover:text-[#ac2505] transition-colors ml-2">

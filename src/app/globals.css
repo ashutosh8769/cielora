@@ -54,3 +54,28 @@ body {
 .animate-slideUp {
   animation: slideUp 0.3s ease-in forwards;
 }
+
+/* Hide Google Translate Banner completely */
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+.VIpgJd-ZVi9od-ORHb-OEVmcd,
+.goog-te-banner-frame,
+iframe.goog-te-banner-frame,
+.skiptranslate iframe {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+body, html {
+  top: 0px !important;
+  position: static !important;
+}
+
+#goog-gt-tt {
+  display: none !important;
+}
+
+.goog-text-highlight {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}

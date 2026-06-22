@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+
 import ProductRow from "@/components/ProductRow";
 import { getDb } from "@/lib/db";
 
@@ -24,7 +25,9 @@ export default async function Home() {
       .filter(Boolean);
   };
   return (
-    <main className="flex min-h-screen flex-col bg-white">
+    <main className="flex min-h-screen flex-col bg-white relative">
+
+
       {/* Top Hero Section */}
       {topHero && topHero.visible && (
         <section className="relative w-full h-[65vh] md:h-[800px] bg-stone-200">
