@@ -22,8 +22,8 @@ export default function Navbar() {
         document.cookie = "googtrans=/en/es; path=/";
         document.cookie = "googtrans=/en/es; domain=" + window.location.hostname + "; path=/";
       } else {
-        document.cookie = "googtrans=/en/en; path=/";
-        document.cookie = "googtrans=/en/en; domain=" + window.location.hostname + "; path=/";
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=" + window.location.hostname + "; path=/;";
       }
       window.location.reload();
     }
@@ -209,8 +209,8 @@ export default function Navbar() {
               <div className="absolute right-[-10px] top-[100%] pt-5 w-32 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <div className="bg-white shadow-md border border-gray-100 overflow-hidden">
                   <div className="flex flex-col text-[14px] text-gray-700 font-medium">
-                    <div onClick={() => changeLanguage('en')} className="px-4 py-3 hover:bg-gray-50 hover:text-[#ac2505] transition-colors text-center border-b border-gray-50">English</div>
-                    <div onClick={() => changeLanguage('es')} className="px-4 py-3 hover:bg-gray-50 hover:text-[#ac2505] transition-colors text-center">Spanish</div>
+                    <div onClick={() => changeLanguage('en')} className="notranslate px-4 py-3 hover:bg-gray-50 hover:text-[#ac2505] transition-colors text-center border-b border-gray-50">English</div>
+                    <div onClick={() => changeLanguage('es')} className="notranslate px-4 py-3 hover:bg-gray-50 hover:text-[#ac2505] transition-colors text-center">Español</div>
                   </div>
                 </div>
               </div>
